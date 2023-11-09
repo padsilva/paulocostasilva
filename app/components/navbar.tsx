@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useRequestInfo } from "~/utils/request-info";
 import { DownloadIcon, MoonIcon, SunIcon } from "./icons";
 import { THEME_FETCHER_KEY, useOptimisticThemeMode } from "~/utils/theme";
+import { Typography } from "./typography";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
@@ -53,17 +54,29 @@ function DarkModeToggle() {
 
 export function Navbar() {
   return (
-    <header className="px-20 py-4 border-b-[1px]">
+    <header className="px-20 py-4 border-b-[1px] dark:border-b-[#272D2B]">
       <nav className="flex justify-between items-center">
-        <Link className="font-sans text-3xl" to="/">
-          Paulo Silva
+        <Link to="/">
+          <Typography size="h3" className="font-bold">
+            Paulo Silva
+          </Typography>
         </Link>
         <div className="flex items-center gap-6">
-          <Link to="#education">Education</Link>
-          <Link to="#experience">Experience</Link>
-          <Link to="#skills">Skills</Link>
-          <Link to="#projects">Projects</Link>
-          <Link to="#contact">Contact</Link>
+          <Link to="#education">
+            <Typography size="body2">Education</Typography>
+          </Link>
+          <Link to="#experience">
+            <Typography size="body2">Experience</Typography>
+          </Link>
+          <Link to="#skills">
+            <Typography size="body2">Skills</Typography>
+          </Link>
+          <Link to="#projects">
+            <Typography size="body2">Projects</Typography>
+          </Link>
+          <Link to="#contact">
+            <Typography size="body2">Contact</Typography>
+          </Link>
           <button className="flex gap-1 bg-black dark:bg-white text-white dark:text-black rounded-xl px-4 py-1.5">
             <span>CV</span>
             <span>

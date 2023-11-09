@@ -42,8 +42,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
     { viewport: "width=device-width,initial-scale=1,viewport-fit=cover" },
     {
-      "theme-color":
-        requestInfo?.userPrefs.theme === "dark" ? "#030712" : "#FFF",
+      "theme-color": requestInfo?.userPrefs.theme === "dark" ? "#000" : "#FFF",
     },
     { title: "Paulo da Costa Silva 💻" },
     { name: "description", content: "Welcome to my personal website!" },
@@ -65,7 +64,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-white dark:bg-black text-black dark:text-white transition duration-500">
+      <body className="bg-white dark:bg-black transition duration-500">
         <Navbar />
 
         <Outlet />
