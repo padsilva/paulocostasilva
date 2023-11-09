@@ -2,7 +2,7 @@ import { clsx } from "clsx";
 import * as React from "react";
 
 type TitleProps = {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "button";
   as?: React.ElementType;
   className?: string;
   id?: string;
@@ -22,6 +22,7 @@ const fontSize = {
 const titleColors = {
   primary: "text-black dark:text-white",
   secondary: "text-gray-400 dark:text-slate-500",
+  button: "text-white dark:text-black",
 };
 
 export function Typography({

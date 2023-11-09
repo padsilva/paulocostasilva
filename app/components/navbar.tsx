@@ -5,6 +5,7 @@ import { useRequestInfo } from "~/utils/request-info";
 import { DownloadIcon, MoonIcon, SunIcon } from "./icons";
 import { THEME_FETCHER_KEY, useOptimisticThemeMode } from "~/utils/theme";
 import { Typography } from "./typography";
+import { Button } from "./button";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
@@ -56,7 +57,7 @@ export function Navbar() {
   return (
     <header className="px-20 py-4 border-b-[1px] dark:border-b-[#272D2B]">
       <nav className="flex justify-between items-center">
-        <Link to="/">
+        <Link to="">
           <Typography size="h3" className="font-bold">
             Paulo Silva
           </Typography>
@@ -77,12 +78,7 @@ export function Navbar() {
           <Link to="#contact">
             <Typography size="body2">Contact</Typography>
           </Link>
-          <button className="flex gap-1 bg-black dark:bg-white text-white dark:text-black rounded-xl px-4 py-1.5">
-            <span>CV</span>
-            <span>
-              <DownloadIcon />
-            </span>
-          </button>
+          <Button startIcon={<DownloadIcon />} label="CV" />
           <div className="block">
             <DarkModeToggle />
           </div>
