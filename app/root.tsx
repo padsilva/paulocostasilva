@@ -18,7 +18,7 @@ import stylesheet from "~/tailwind.css";
 import { getTheme } from "./utils/theme.server";
 import { Navbar } from "./components/navbar";
 import { useTheme } from "./utils/theme";
-import clsx from "clsx";
+import { Footer } from "./components/footer";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -51,10 +51,9 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export default function App() {
   const theme = useTheme();
-  console.log("theme", theme);
 
   return (
-    <html lang="en" className={clsx(theme)}>
+    <html lang="en" className={theme}>
       <head>
         <meta charSet="utf-8" />
         <meta
@@ -69,7 +68,7 @@ export default function App() {
 
         <Outlet />
 
-        <footer>FOOTER</footer>
+        <Footer />
 
         <ScrollRestoration />
         <Scripts />

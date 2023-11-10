@@ -31,5 +31,5 @@ export function useOptimisticThemeMode() {
 export function useTheme() {
   const requestInfo = useRequestInfo();
   const optimisticMode = useOptimisticThemeMode();
-  return optimisticMode || requestInfo.userPrefs.theme;
+  return optimisticMode || requestInfo.userPrefs.theme || "light";
 }

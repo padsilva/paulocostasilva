@@ -55,7 +55,7 @@ function DarkModeToggle() {
 
 export function Navbar() {
   return (
-    <header className="px-20 py-4 border-b-[1px] dark:border-b-[#272D2B]">
+    <header className="px-20 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-50 dark:bg-slate-950">
       <nav className="flex justify-between items-center">
         <Link to="">
           <Typography size="h3" className="font-bold">
