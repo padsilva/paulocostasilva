@@ -26,7 +26,7 @@ function NavLink({ children, to }: LinkProps) {
   return (
     <Link
       className={clsx(
-        "relative after:bg-black after:absolute after:h-0.5 after:bottom-0 after:left-0",
+        "relative after:bg-black dark:after:bg-white after:absolute after:h-0.5 after:bottom-0 after:left-0",
         animation
       )}
       to={to}
