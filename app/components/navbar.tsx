@@ -1,4 +1,5 @@
-import { Link, useFetcher } from "@remix-run/react";
+import type { LinkProps } from "@remix-run/react";
+import { Link, useFetcher, useLocation } from "@remix-run/react";
 import clsx from "clsx";
 
 import { useRequestInfo } from "~/utils/request-info";
@@ -9,6 +10,30 @@ import { Button } from "./button";
 import { IconButton } from "./icon-button";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
+
+function NavLink({ children, to }: LinkProps) {
+  const { hash } = useLocation();
+  const isSelected = to === hash;
+
+  console.log("to", to);
+  console.log("hash", hash);
+  console.log("isSelected", isSelected);
+
+  const animation = isSelected
+    ? "after:w-full"
+    : "after:w-0 hover:after:w-full after:transition-all after:duration-500";
+
+  return (
+    <Link
+      className={clsx(
+        "relative after:bg-black after:absolute after:h-0.5 after:bottom-0 after:left-0",
+        animation
+      )}
+      to={to}
+      children={children}
+    />
+  );
+}
 
 function DarkModeToggle() {
   const requestInfo = useRequestInfo();
@@ -25,7 +50,7 @@ function DarkModeToggle() {
     <fetcher.Form method="POST" action="/action/set-theme">
       <input type="hidden" name="theme" value={nextMode} />
 
-      <IconButton>
+      <IconButton title="dark-mode">
         <span
           className={clsx(
             iconSpanClassName,
@@ -51,29 +76,29 @@ function DarkModeToggle() {
 
 export function Navbar() {
   return (
-    <header className="px-20 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-50 dark:bg-slate-950">
+    <header className="sticky top-0 px-20 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-50 dark:bg-slate-950">
       <nav className="flex justify-between items-center">
-        <Link to="">
+        <NavLink to="">
           <Typography size="h3" className="font-bold">
             Paulo Silva
           </Typography>
-        </Link>
+        </NavLink>
         <div className="flex items-center gap-6">
-          <Link to="#education">
+          <NavLink to="#education">
             <Typography size="body2">Education</Typography>
-          </Link>
-          <Link to="#experience">
+          </NavLink>
+          <NavLink to="#experience">
             <Typography size="body2">Experience</Typography>
-          </Link>
-          <Link to="#skills">
+          </NavLink>
+          <NavLink to="#skills">
             <Typography size="body2">Skills</Typography>
-          </Link>
-          <Link to="#projects">
+          </NavLink>
+          <NavLink to="#projects">
             <Typography size="body2">Projects</Typography>
-          </Link>
-          <Link to="#contact">
+          </NavLink>
+          <NavLink to="#contact">
             <Typography size="body2">Contact</Typography>
-          </Link>
+          </NavLink>
           <Button startIcon={<DownloadIcon />} label="CV" />
           <div className="block">
             <DarkModeToggle />
