@@ -62,6 +62,16 @@ export default function App() {
         />
         <Meta />
         <Links />
+        {/* {typeof document === "undefined" ? "__STYLES__" : null} */}
+        {/**
+         * This removes anything added to html from extensions, causing hydration issue
+          https://github.com/remix-run/remix/issues/4822
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.querySelectorAll("html > script").forEach((s) => s.parentNode?.removeChild(s));`,
+          }}
+        />
       </head>
       <body className="bg-white dark:bg-black transition duration-500">
         <Navbar />
