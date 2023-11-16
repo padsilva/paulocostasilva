@@ -17,6 +17,7 @@ const fontSize = {
   body1: "md:text-lg",
   body2: "text-base",
   body3: "text-sm",
+  caption: "text-xs",
 };
 
 const titleColors = {
@@ -36,6 +37,7 @@ export function Typography({
     size === "body1" ||
     size === "body2" ||
     size === "body3" ||
+    size === "caption" ||
     size === "subtitle";
   const Tag = as ?? (isParagraph ? "p" : size);
   return (
