@@ -28,12 +28,12 @@ export function Navbar() {
             </div>
             <div className="flex flex-col items-center">
               <Typography size="h2">Paulo</Typography>
-              <div className="flex items-center gap-1 self-stretch">
-                <hr className="flex-grow border-black dark:border-white" />
-                <Typography size="caption" className="flex-shrink uppercase">
+              <div className="flex items-center gap-0.5 self-stretch">
+                <hr className="flex-grow border-t-2 border-black dark:border-white" />
+                <Typography size="caption" className="flex-shrink">
                   Costa Silva
                 </Typography>
-                <hr className="flex-grow border-black dark:border-white" />
+                <hr className="flex-grow border-t-2 border-black dark:border-white" />
               </div>
             </div>
           </div>

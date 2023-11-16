@@ -66,7 +66,7 @@ export function CodeIcon({ size = 24 }: { size?: number } = {}) {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      strokeWidth="1.5"
+      strokeWidth="2.5"
       stroke="currentColor"
     >
       <path
