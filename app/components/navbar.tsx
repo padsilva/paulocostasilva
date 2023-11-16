@@ -22,14 +22,12 @@ export function Navbar() {
     <header className="sticky top-0 px-20 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
       <nav className="flex justify-between items-center">
         <Link to="">
-          <div className="flex items-center justify-center gap-2 ">
+          <div className="flex items-center justify-center gap-2">
             <div className="text-black dark:text-white">
               <CodeIcon size={48} />
             </div>
             <div className="flex flex-col items-center">
-              <Typography size="h2" className="font-normal tracking-wider">
-                Paulo
-              </Typography>
+              <Typography size="h2">Paulo</Typography>
               <div className="flex items-center gap-1 self-stretch">
                 <hr className="flex-grow border-black dark:border-white" />
                 <Typography size="caption" className="flex-shrink uppercase">
