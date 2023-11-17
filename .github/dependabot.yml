@@ -1,0 +1,25 @@
+version: 2
+registries:
+  # Here you will configure an npm-like registry with the Remix url
+  npm-remix:
+    type: npm-registry
+    url: https://npm.remix.run
+    # This token is used to authenticate the requests to the registry
+    token: ${{secrets.REMIX_TOKEN}}
+  # And because of the config we are going to do we also need to configure the
+  # normal npm registry and pass a token
+  npm-npmjs:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    token: ${{secrets.NPM_TOKEN}}
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    open-pull-requests-limit: 10
+    # And here we tell Dependebot to send PRs for npm-like registries using the
+    # registries we defined above
+    registries:
+      - npm-remix
+      - npm-npmjs
+    schedule:
+      interval: "daily"
