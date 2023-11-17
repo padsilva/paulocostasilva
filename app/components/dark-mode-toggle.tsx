@@ -23,7 +23,7 @@ export function DarkModeToggle() {
     <fetcher.Form method="POST" action="/action/set-theme">
       <input type="hidden" name="theme" value={nextMode} />
 
-      <IconButton title="dark-mode">
+      <IconButton title="Click to toggle between light and dark mode">
         <span
           className={clsx(
             iconSpanClassName,

@@ -5,14 +5,16 @@ export function Button({
   label,
   endIcon,
   startIcon,
+  title,
 }: {
   label: string;
   endIcon?: ReactElement;
   startIcon?: ReactElement;
+  title?: string;
 }) {
   return (
     <button
-      title={label}
+      title={title || label}
       type="button"
       className="flex justify-center gap-2 rounded-xl px-4 py-1.5 text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
     >

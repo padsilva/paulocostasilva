@@ -1,6 +1,6 @@
 import { Link, type LinkProps } from "@remix-run/react";
 
-import { CodeIcon, DownloadIcon } from "./icons";
+import { CodeIcon, DownloadIcon, GitHubIcon } from "./icons";
 import { Typography } from "./typography";
 import { Button } from "./button";
 import { DarkModeToggle } from "./dark-mode-toggle";
@@ -54,10 +54,23 @@ export function Navbar() {
           <NavLink to="#contact">
             <Typography size="body2">Contact</Typography>
           </NavLink>
-          <Button startIcon={<DownloadIcon />} label="CV" />
+          <Button
+            startIcon={<DownloadIcon />}
+            label="CV"
+            title="Click to download the CV pdf file"
+          />
           <div className="block">
             <DarkModeToggle />
           </div>
+          <Link
+            title="Click to open GitHub repository link"
+            to="https://github.com/padsilva/paulocostasilva"
+            target="_blank"
+          >
+            <div className="text-black dark:text-white">
+              <GitHubIcon />
+            </div>
+          </Link>
         </div>
       </nav>
     </header>
