@@ -26,7 +26,7 @@ export function Navbar() {
             <div className="text-black dark:text-white">
               <CodeIcon size={48} />
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center select-none">
               <Typography size="h2">Paulo</Typography>
               <div className="flex items-center gap-0.5 self-stretch">
                 <hr className="flex-grow border-t-2 border-black dark:border-white" />

@@ -53,7 +53,7 @@ export default function App() {
   const theme = useTheme();
 
   return (
-    <html lang="en" className={theme}>
+    <html lang="en" className={`${theme} scroll-smooth`}>
       <head>
         <meta charSet="utf-8" />
         <meta
