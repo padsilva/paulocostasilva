@@ -4,6 +4,7 @@ import { CodeIcon, DownloadIcon, GitHubIcon } from "./icons";
 import { Typography } from "./typography";
 import { Button } from "./button";
 import { DarkModeToggle } from "./dark-mode-toggle";
+import { LanguageToggle } from "./language-toggle";
 
 function NavLink({ children, to }: LinkProps) {
   return (
@@ -19,7 +20,7 @@ function NavLink({ children, to }: LinkProps) {
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 px-20 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
+    <header className="sticky top-0 px-16 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
       <nav className="flex justify-between items-center">
         <Link to="">
           <div className="flex items-center justify-center gap-2">
@@ -62,12 +63,15 @@ export function Navbar() {
           <div className="block">
             <DarkModeToggle />
           </div>
+          <div className="block">
+            <LanguageToggle />
+          </div>
           <Link
             title="Click to open GitHub repository link"
             to="https://github.com/padsilva/paulocostasilva"
             target="_blank"
           >
-            <div className="text-black dark:text-white">
+            <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200">
               <GitHubIcon />
             </div>
           </Link>

@@ -1,6 +1,7 @@
 import { useFetcher } from "@remix-run/react";
 import { parse } from "@conform-to/zod";
 import { z } from "zod";
+
 import { useRequestInfo } from "./request-info";
 
 export const THEME_FETCHER_KEY = "THEME_FETCHER";
@@ -25,8 +26,7 @@ export function useOptimisticThemeMode() {
 }
 
 /**
- * @returns the user's theme preference, or the client hint theme if the user
- * has not set a preference.
+ * @returns the user's theme preference
  */
 export function useTheme() {
   const requestInfo = useRequestInfo();

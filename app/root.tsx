@@ -15,10 +15,13 @@ import {
 } from "@remix-run/react";
 
 import stylesheet from "~/tailwind.css";
-import { getTheme } from "./utils/theme.server";
+
 import { Navbar } from "./components/navbar";
-import { useTheme } from "./utils/theme";
 import { Footer } from "./components/footer";
+import { getTheme } from "./utils/theme.server";
+import { useTheme } from "./utils/theme";
+import { getLang } from "./utils/lang.server";
+import { useLang } from "./utils/lang";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -29,6 +32,7 @@ export async function loader({ request }: DataFunctionArgs) {
   const data = {
     requestInfo: {
       userPrefs: {
+        lang: getLang(request),
         theme: getTheme(request),
       },
     },
@@ -50,10 +54,11 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export default function App() {
+  const lang = useLang();
   const theme = useTheme();
 
   return (
-    <html lang="en" className={`${theme} scroll-smooth`}>
+    <html lang={lang} className={`${theme} scroll-smooth`}>
       <head>
         <meta charSet="utf-8" />
         <meta
