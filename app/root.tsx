@@ -13,6 +13,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { useChangeLanguage } from "remix-i18next";
+import { useTranslation } from "react-i18next";
 
 import stylesheet from "~/tailwind.css";
 
@@ -41,6 +43,14 @@ export async function loader({ request }: DataFunctionArgs) {
   return json(data);
 }
 
+export let handle = {
+  // In the handle export, we can add a i18n key with namespaces our route
+  // will need to load. This key can be a single string or an array of strings.
+  // TIP: In most cases, you should set this to your defaultNS from your i18n config
+  // or if you did not set one, set it to the i18next default namespace "translation"
+  i18n: "common",
+};
+
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const requestInfo = data?.requestInfo;
   return [
@@ -54,11 +64,14 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export default function App() {
+  const { i18n } = useTranslation();
   const lang = useLang();
   const theme = useTheme();
 
+  useChangeLanguage(lang);
+
   return (
-    <html lang={lang} className={`${theme} scroll-smooth`}>
+    <html lang={lang} dir={i18n.dir()} className={`${theme} scroll-smooth`}>
       <head>
         <meta charSet="utf-8" />
         <meta

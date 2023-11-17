@@ -1,4 +1,5 @@
 import { Link, type LinkProps } from "@remix-run/react";
+import { useTranslation } from "react-i18next";
 
 import { CodeIcon, DownloadIcon, GitHubIcon } from "./icons";
 import { Typography } from "./typography";
@@ -19,6 +20,8 @@ function NavLink({ children, to }: LinkProps) {
 }
 
 export function Navbar() {
+  const { t } = useTranslation();
+
   return (
     <header className="sticky top-0 px-16 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
       <nav className="flex justify-between items-center">
@@ -39,42 +42,44 @@ export function Navbar() {
             </div>
           </div>
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <NavLink to="#education">
-            <Typography size="body2">Education</Typography>
+            <Typography size="body2">{t("education")}</Typography>
           </NavLink>
           <NavLink to="#experience">
-            <Typography size="body2">Experience</Typography>
+            <Typography size="body2">{t("experience")}</Typography>
           </NavLink>
           <NavLink to="#skills">
-            <Typography size="body2">Skills</Typography>
+            <Typography size="body2">{t("skills")}</Typography>
           </NavLink>
           <NavLink to="#projects">
-            <Typography size="body2">Projects</Typography>
+            <Typography size="body2">{t("projects")}</Typography>
           </NavLink>
           <NavLink to="#contact">
-            <Typography size="body2">Contact</Typography>
+            <Typography size="body2">{t("contact")}</Typography>
           </NavLink>
           <Button
             startIcon={<DownloadIcon />}
             label="CV"
             title="Click to download the CV pdf file"
           />
-          <div className="block">
-            <DarkModeToggle />
-          </div>
-          <div className="block">
-            <LanguageToggle />
-          </div>
-          <Link
-            title="Click to open GitHub repository link"
-            to="https://github.com/padsilva/paulocostasilva"
-            target="_blank"
-          >
-            <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200">
-              <GitHubIcon />
+          <div className="flex gap-2">
+            <div className="block">
+              <DarkModeToggle />
             </div>
-          </Link>
+            <div className="block">
+              <LanguageToggle />
+            </div>
+            <Link
+              title="Click to open GitHub repository link"
+              to="https://github.com/padsilva/paulocostasilva"
+              target="_blank"
+            >
+              <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200">
+                <GitHubIcon />
+              </div>
+            </Link>
+          </div>
         </div>
       </nav>
     </header>
