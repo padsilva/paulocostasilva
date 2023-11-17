@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 import { useRequestInfo } from "~/utils/request-info";
 import { LANG_FETCHER_KEY, useOptimisticLangMode } from "~/utils/lang";
-import { IconButton } from "./icon-button";
+import { IconButton } from "../icon-button";
 
 export function LanguageToggle() {
   const requestInfo = useRequestInfo();
@@ -25,7 +25,7 @@ export function LanguageToggle() {
     >
       <input type="hidden" name="lang" value={nextMode} />
 
-      <IconButton title="Click to toggle between light and dark mode">
+      <IconButton title="Click to toggle between English and Portuguese language">
         <span
           className={clsx(
             iconSpanClassName,

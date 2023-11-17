@@ -2,9 +2,9 @@ import { useFetcher } from "@remix-run/react";
 import clsx from "clsx";
 
 import { useRequestInfo } from "~/utils/request-info";
-import { MoonIcon, SunIcon } from "./icons";
+import { MoonIcon, SunIcon } from "../icons";
 import { THEME_FETCHER_KEY, useOptimisticThemeMode } from "~/utils/theme";
-import { IconButton } from "./icon-button";
+import { IconButton } from "../icon-button";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
