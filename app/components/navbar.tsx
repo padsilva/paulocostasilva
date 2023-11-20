@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import { CodeIcon, DownloadIcon, GitHubIcon } from "./icons";
 import { Typography } from "./typography";
 import { Button } from "./button";
-import { DarkModeToggle } from "./toogles/dark-mode";
-import { LanguageToggle } from "./toogles/language";
+import { DarkModeToggle } from "./toggles/dark-mode";
+import { LanguageToggle } from "./toggles/language";
 
 function NavLink({ children, to }: LinkProps) {
   return (
