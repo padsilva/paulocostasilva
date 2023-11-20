@@ -43,11 +43,8 @@ export function Navbar() {
           </div>
         </Link>
         <div className="flex items-center gap-4">
-          <NavLink to="#education">
-            <Typography size="body2">{t("education")}</Typography>
-          </NavLink>
-          <NavLink to="#experience">
-            <Typography size="body2">{t("experience")}</Typography>
+          <NavLink to="#about">
+            <Typography size="body2">{t("about")}</Typography>
           </NavLink>
           <NavLink to="#skills">
             <Typography size="body2">{t("skills")}</Typography>
@@ -61,7 +58,7 @@ export function Navbar() {
           <Button
             startIcon={<DownloadIcon />}
             label="CV"
-            title="Click to download the CV pdf file"
+            title={t("download_cv")}
           />
           <div className="flex gap-2">
             <div className="block">
@@ -71,7 +68,7 @@ export function Navbar() {
               <LanguageToggle />
             </div>
             <Link
-              title="Click to open GitHub repository link"
+              title={t("github_link")}
               to="https://github.com/padsilva/paulocostasilva"
               target="_blank"
             >

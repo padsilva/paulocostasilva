@@ -1,7 +1,10 @@
 {
-  "education": "Educação",
-  "experience": "Experiência",
+  "about": "Sobre",
   "skills": "Competências",
-  "projects": "Projectos",
-  "contact": "Contacto"
+  "work": "Projectos",
+  "contact": "Contacto",
+  "download_cv": "Clique para descarregar o CV",
+  "toggle_theme": "Clique para alternar entre o tema claro e escuro",
+  "toggle_lang": "Clique para alternar entre a língua inglesa e portuguesa",
+  "github_link": "Clique para abrir o repositório GitHub"
 }

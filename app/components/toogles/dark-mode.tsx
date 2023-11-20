@@ -1,5 +1,6 @@
 import { useFetcher } from "@remix-run/react";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 
 import { useRequestInfo } from "~/utils/request-info";
 import { MoonIcon, SunIcon } from "../icons";
@@ -9,6 +10,7 @@ import { IconButton } from "../icon-button";
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
 export function DarkModeToggle() {
+  const { t } = useTranslation();
   const requestInfo = useRequestInfo();
   const fetcher = useFetcher({ key: THEME_FETCHER_KEY });
 
@@ -23,7 +25,7 @@ export function DarkModeToggle() {
     <fetcher.Form method="POST" action="/action/set-theme">
       <input type="hidden" name="theme" value={nextMode} />
 
-      <IconButton title="Click to toggle between light and dark mode">
+      <IconButton title={t("toggle_theme")}>
         <span
           className={clsx(
             iconSpanClassName,

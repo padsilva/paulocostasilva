@@ -1,11 +1,13 @@
 import { useFetcher } from "@remix-run/react";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 
 import { useRequestInfo } from "~/utils/request-info";
 import { LANG_FETCHER_KEY, useOptimisticLangMode } from "~/utils/lang";
 import { IconButton } from "../icon-button";
 
 export function LanguageToggle() {
+  const { t } = useTranslation();
   const requestInfo = useRequestInfo();
   const fetcher = useFetcher({ key: LANG_FETCHER_KEY });
 
@@ -24,7 +26,7 @@ export function LanguageToggle() {
     >
       <input type="hidden" name="lang" value={nextMode} />
 
-      <IconButton title="Click to toggle between English and Portuguese language">
+      <IconButton title={t("toggle_lang")}>
         <span
           className={clsx(
             iconSpanClassName,
