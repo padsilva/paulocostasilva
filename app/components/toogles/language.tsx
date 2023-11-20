@@ -13,7 +13,6 @@ export function LanguageToggle() {
   const mode = optimisticMode ?? requestInfo.userPrefs.lang ?? "en";
   const isEnLang = mode === "en";
   const nextMode = isEnLang ? "pt" : "en";
-  console.log("nextMode", nextMode);
 
   const iconSpanClassName =
     "absolute inset-0 transform transition-transform duration-700";
