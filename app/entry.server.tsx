@@ -18,6 +18,7 @@ import Backend from "i18next-fs-backend";
 
 import i18n from "./i18n";
 import i18next from "./i18next.server";
+import { getLang } from "./utils/lang.server";
 
 const ABORT_DELAY = 5_000;
 
@@ -29,7 +30,7 @@ export default async function handleRequest(
   loadContext: AppLoadContext
 ) {
   const instance = createInstance();
-  const lng = await i18next.getLocale(request);
+  const lng = getLang(request) ?? (await i18next.getLocale(request));
   const ns = i18next.getRouteNamespaces(remixContext);
 
   await instance

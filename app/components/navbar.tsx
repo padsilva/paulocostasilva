@@ -6,6 +6,8 @@ import { Typography } from "./typography";
 import { Button } from "./button";
 import { DarkModeToggle } from "./toggles/dark-mode";
 import { LanguageToggle } from "./toggles/language";
+import { SidebarToggle } from "./toggles/sidebar";
+import { IconButton } from "./icon-button";
 
 function NavLink({ children, to }: LinkProps) {
   return (
@@ -28,7 +30,7 @@ export function Navbar() {
         <Link to="">
           <div className="flex items-center justify-center gap-2">
             <div className="text-black dark:text-white">
-              <CodeIcon size={48} />
+              <CodeIcon />
             </div>
             <div className="flex flex-col items-center select-none">
               <Typography size="h2">Paulo</Typography>
@@ -42,7 +44,7 @@ export function Navbar() {
             </div>
           </div>
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="hidden lg:flex lg:items-center lg:gap-4">
           <NavLink to="#about">
             <Typography size="body2">{t("about")}</Typography>
           </NavLink>
@@ -67,16 +69,19 @@ export function Navbar() {
             <div className="block">
               <LanguageToggle />
             </div>
-            <Link
-              title={t("github_link")}
-              to="https://github.com/padsilva/paulocostasilva"
-              target="_blank"
-            >
-              <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200">
+            <IconButton title={t("github_link")} border={false} size={8}>
+              <Link
+                title={t("github_link")}
+                to="https://github.com/padsilva/paulocostasilva"
+                target="_blank"
+              >
                 <GitHubIcon />
-              </div>
-            </Link>
+              </Link>
+            </IconButton>
           </div>
+        </div>
+        <div className="lg:hidden">
+          <SidebarToggle />
         </div>
       </nav>
     </header>

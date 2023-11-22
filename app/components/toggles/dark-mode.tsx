@@ -6,6 +6,7 @@ import { useRequestInfo } from "~/utils/request-info";
 import { MoonIcon, SunIcon } from "../icons";
 import { THEME_FETCHER_KEY, useOptimisticThemeMode } from "~/utils/theme";
 import { IconButton } from "../icon-button";
+import { Button } from "../button";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
@@ -25,26 +26,37 @@ export function DarkModeToggle() {
     <fetcher.Form method="POST" action="/action/set-theme">
       <input type="hidden" name="theme" value={nextMode} />
 
-      <IconButton title={t("toggle_theme")}>
-        <span
-          className={clsx(
-            iconSpanClassName,
-            mode === "dark" ? "rotate-0" : "rotate-90"
-          )}
-          style={iconTransformOrigin}
-        >
-          <MoonIcon />
-        </span>
-        <span
-          className={clsx(
-            iconSpanClassName,
-            mode === "light" ? "rotate-0" : "-rotate-90"
-          )}
-          style={iconTransformOrigin}
-        >
-          <SunIcon />
-        </span>
-      </IconButton>
+      <div className="lg:hidden flex w-full">
+        <Button
+          label="Switch THEME"
+          startIcon={<MoonIcon />}
+          title={t("toggle_theme")}
+          variant="outline"
+        />
+      </div>
+
+      <div className="lg:flex hidden w-full">
+        <IconButton title={t("toggle_theme")}>
+          <span
+            className={clsx(
+              iconSpanClassName,
+              mode === "dark" ? "rotate-0" : "rotate-90"
+            )}
+            style={iconTransformOrigin}
+          >
+            <MoonIcon />
+          </span>
+          <span
+            className={clsx(
+              iconSpanClassName,
+              mode === "light" ? "rotate-0" : "-rotate-90"
+            )}
+            style={iconTransformOrigin}
+          >
+            <SunIcon />
+          </span>
+        </IconButton>
+      </div>
     </fetcher.Form>
   );
 }
