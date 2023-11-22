@@ -1,11 +1,16 @@
 {
-  "about": "About",
-  "skills": "Skills",
-  "projects": "Projects",
-  "contact": "Contact",
-  "download_cv": "Click to download the CV",
-  "toggle_theme": "Click to toggle between light and dark theme",
-  "toggle_lang": "Click to toggle between English and Portuguese language",
+  "about": "about",
+  "skills": "skills",
+  "projects": "projects",
+  "contact": "contact",
+  "download_cv": "Download CV",
+  "click_download_cv": "Click to download the CV",
+  "switch_theme": "Click to switch to {{tMode}}",
+  "switch_lang": "Click to switch to {{tLang}}",
   "github_link": "Click to open GitHub repository",
-  "menu": "Click to open the menu"
+  "menu": "Click to open the menu",
+  "dark_mode": "dark mode",
+  "light_mode": "light mode",
+  "en_lang": "English",
+  "pt_lang": "Portuguese"
 }

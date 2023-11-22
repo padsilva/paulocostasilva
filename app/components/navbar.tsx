@@ -7,13 +7,12 @@ import { Button } from "./button";
 import { DarkModeToggle } from "./toggles/dark-mode";
 import { LanguageToggle } from "./toggles/language";
 import { SidebarToggle } from "./toggles/sidebar";
-import { IconButton } from "./icon-button";
 
 function NavLink({ children, to }: LinkProps) {
   return (
     <Link
       className={
-        "relative after:bg-black dark:after:bg-white after:absolute after:h-0.5 after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:transition-all after:duration-500"
+        "relative after:bg-black dark:after:bg-white after:absolute after:h-0.5 after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:transition-all after:duration-500 capitalize"
       }
       to={to}
       children={children}
@@ -60,24 +59,20 @@ export function Navbar() {
           <Button
             startIcon={<DownloadIcon />}
             label="CV"
-            title={t("download_cv")}
+            title={t("click_download_cv")}
           />
           <div className="flex gap-2">
-            <div className="block">
-              <DarkModeToggle />
-            </div>
-            <div className="block">
-              <LanguageToggle />
-            </div>
-            <IconButton title={t("github_link")} border={false} size={8}>
-              <Link
-                title={t("github_link")}
-                to="https://github.com/padsilva/paulocostasilva"
-                target="_blank"
-              >
+            <DarkModeToggle />
+            <LanguageToggle />
+            <Link
+              title={t("github_link")}
+              to="https://github.com/padsilva/paulocostasilva"
+              target="_blank"
+            >
+              <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200">
                 <GitHubIcon />
-              </Link>
-            </IconButton>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="lg:hidden">

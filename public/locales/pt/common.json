@@ -1,11 +1,16 @@
 {
-  "about": "Sobre",
-  "skills": "Competências",
-  "work": "Projectos",
-  "contact": "Contacto",
-  "download_cv": "Clique para descarregar o CV",
-  "toggle_theme": "Clique para alternar entre o tema claro e escuro",
-  "toggle_lang": "Clique para alternar entre a língua inglesa e portuguesa",
+  "about": "sobre",
+  "skills": "competências",
+  "projects": "projectos",
+  "contact": "contacto",
+  "download_cv": "Descarregar CV",
+  "click_download_cv": "Clique para descarregar o CV",
+  "switch_theme": "Clique para mudar para o {{tMode}}",
+  "switch_lang": "Clique para mudar para {{tLang}}",
   "github_link": "Clique para abrir o repositório GitHub",
-  "menu": "Clique para abrir o menu"
+  "menu": "Clique para abrir o menu",
+  "dark_mode": "modo escuro",
+  "light_mode": "modo claro",
+  "en_lang": "Inglês",
+  "pt_lang": "Português"
 }

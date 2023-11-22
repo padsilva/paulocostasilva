@@ -14,7 +14,7 @@ export const LangFormSchema = z.object({
  * If the user's changing their language preference, this will return the
  * value it's being changed to.
  */
-export function useOptimisticLangMode() {
+export function useOptimisticLang() {
   const langFetcher = useFetcher({ key: LANG_FETCHER_KEY });
 
   if (langFetcher.formData) {
@@ -30,6 +30,6 @@ export function useOptimisticLangMode() {
  */
 export function useLang() {
   const requestInfo = useRequestInfo();
-  const optimisticMode = useOptimisticLangMode();
+  const optimisticMode = useOptimisticLang();
   return optimisticMode || requestInfo.userPrefs.lang || "en";
 }

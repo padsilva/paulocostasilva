@@ -13,7 +13,7 @@ import { LanguageToggle } from "./language";
 function NavLink({ children, to }: LinkProps) {
   return (
     <Link
-      className={"p-6 hover:bg-slate-100 dark:hover:bg-slate-800"}
+      className={"p-6 hover:bg-slate-100 dark:hover:bg-slate-800 capitalize"}
       to={to}
       children={children}
     />
@@ -77,9 +77,9 @@ export function SidebarToggle() {
         </NavLink>
         <div className="p-6 flex flex-col gap-4">
           <Button
-            label="Download CV"
+            label={t("download_cv")}
             startIcon={<DownloadIcon />}
-            title={t("download_cv")}
+            title={t("click_download_cv")}
           />
           <DarkModeToggle />
           <LanguageToggle />
@@ -89,7 +89,7 @@ export function SidebarToggle() {
             target="_blank"
           >
             <Button
-              label="Link GITHUB"
+              label="GitHub"
               startIcon={<GitHubIcon size={24} />}
               title={t("github_link")}
               variant="outline"
