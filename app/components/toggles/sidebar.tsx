@@ -79,7 +79,7 @@ export function SidebarToggle() {
         <NavLink to="#contact">
           <Typography size="body2">{t("contact")}</Typography>
         </NavLink>
-        <div className="p-6 flex flex-col gap-4">
+        <div className="py-6 sm:px-10 px-20 flex flex-col gap-4">
           <Button
             label={t("download_cv")}
             startIcon={<DownloadIcon />}
