@@ -5,14 +5,14 @@ export function Avatar({
   name: string;
   size?: "small" | "medium" | "large";
 }) {
-  const pxs = size === "large" ? 120 : size === "medium" ? 60 : 24;
+  const pxs = size === "large" ? 480 : size === "medium" ? 240 : 96;
   return (
-    <div className={`h-${pxs} w-${pxs}`}>
-      <img
-        src={`/assets/${name}.jpg`}
-        alt={`${name} avatar`}
-        className={`rounded-full object-cover`}
-      />
-    </div>
+    <img
+      src={`/assets/${name}.jpg`}
+      alt={`${name} avatar`}
+      className={`rounded-full`}
+      height={pxs}
+      width={pxs}
+    />
   );
 }
