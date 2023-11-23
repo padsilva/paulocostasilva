@@ -6,7 +6,7 @@ export function Hero() {
     <section className="py-24 container" id="#">
       <div className="flex flex-wrap flex-col gap-12">
         <div className="flex flex-col items-center justify-center">
-          <Avatar size="medium" name="profile_v2" />
+          <Avatar size="medium" name="profile" />
         </div>
         <div className="flex flex-col items-start justify-center gap-2">
           <Typography size="h1">Hi I'm Paulo</Typography>
