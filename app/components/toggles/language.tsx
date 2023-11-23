@@ -30,7 +30,7 @@ export function LanguageToggle() {
     >
       <input type="hidden" name="lang" value={nextLang} />
 
-      <div className="lg:hidden flex w-full">
+      <div className="md:hidden flex w-full">
         <Button
           label={tLang}
           startIcon={<LanguageIcon />}
@@ -39,7 +39,7 @@ export function LanguageToggle() {
         />
       </div>
 
-      <div className="lg:flex hidden w-full">
+      <div className="md:flex hidden w-full">
         <IconButton title={t("switch_lang", { tLang })}>
           <span
             className={clsx(

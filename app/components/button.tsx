@@ -28,7 +28,7 @@ export function Button({
         "flex items-center justify-center gap-2 w-full rounded-xl border-2 py-2 overflow-hidden",
         isOutline
           ? "border-slate-500 text:black hover:border-slate-900 active:border-slate-800 dark:hover:border-slate-100 dark:active:border-slate-200 dark:text-white"
-          : "lg:px-4 lg:py-1.5 lg:border-none border-transparent text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
+          : "md:px-4 md:py-1.5 md:border-none border-transparent text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
       )}
     >
       {startIcon && <>{startIcon}</>}

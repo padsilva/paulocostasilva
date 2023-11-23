@@ -24,7 +24,7 @@ export function Navbar() {
   const { t } = useTranslation();
 
   return (
-    <header className="sticky top-0 2xl:px-64 xl:px-32 md:px-16 px-8 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
+    <header className="sticky top-0 2xl:px-64 xl:px-32 lg:px-16 px-8 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
       <nav className="flex justify-between items-center">
         <Link to="">
           <div className="flex items-center justify-center gap-2">
@@ -43,7 +43,7 @@ export function Navbar() {
             </div>
           </div>
         </Link>
-        <div className="hidden lg:flex lg:items-center lg:gap-4">
+        <div className="hidden md:flex md:items-center md:gap-4">
           <NavLink to="#about">
             <Typography size="body2">{t("about")}</Typography>
           </NavLink>
@@ -75,7 +75,7 @@ export function Navbar() {
             </Link>
           </div>
         </div>
-        <div className="lg:hidden">
+        <div className="md:hidden">
           <SidebarToggle />
         </div>
       </nav>
