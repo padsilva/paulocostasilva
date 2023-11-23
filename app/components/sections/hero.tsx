@@ -1,3 +1,4 @@
+import { Avatar } from "../avatar";
 import { Typography } from "../typography";
 
 export function Hero() {
@@ -5,13 +6,7 @@ export function Hero() {
     <section className="py-24 container" id="#">
       <div className="flex flex-wrap flex-col gap-12">
         <div className="flex flex-col items-center justify-center">
-          <div className="rounded-full overflow-hidden">
-            <img
-              src="/assets/profile.jpg"
-              alt="Avatar"
-              className="w-64 h-64 object-cover"
-            />
-          </div>
+          <Avatar size="medium" name="profile_v2" />
         </div>
         <div className="flex flex-col items-start justify-center gap-2">
           <Typography size="h1">Hi I'm Paulo</Typography>
