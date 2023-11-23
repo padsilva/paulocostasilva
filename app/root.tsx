@@ -24,8 +24,6 @@ import { getTheme } from "./utils/theme.server";
 import { useTheme } from "./utils/theme";
 import { getLang } from "./utils/lang.server";
 import { useLang } from "./utils/lang";
-import { useSidebar } from "./utils/sidebar";
-import { getSidebar } from "./utils/sidebar.server";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -38,7 +36,6 @@ export async function loader({ request }: DataFunctionArgs) {
       userPrefs: {
         lang: getLang(request),
         theme: getTheme(request),
-        sidebar: getSidebar(request),
       },
     },
   };
@@ -70,9 +67,6 @@ export default function App() {
   const { i18n } = useTranslation();
   const lang = useLang();
   const theme = useTheme();
-  const isSidebarOpen = useSidebar();
-
-  const styles = isSidebarOpen === "true" ? "overflow-hidden" : "overflow-auto";
 
   useChangeLanguage(lang);
 
@@ -87,9 +81,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body
-        className={`bg-white dark:bg-black transition duration-500 ${styles}`}
-      >
+      <body className="bg-white dark:bg-black transition duration-500">
         <Navbar />
 
         <Outlet />

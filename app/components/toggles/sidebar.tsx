@@ -1,11 +1,10 @@
-import { Link, type LinkProps, useFetcher } from "@remix-run/react";
+import { useEffect, useState } from "react";
+import { Link, type LinkProps } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
-import { useRequestInfo } from "~/utils/request-info";
 import { IconButton } from "../icon-button";
-import { DownloadIcon, GitHubIcon, MenuIcon } from "../icons";
+import { CloseIcon, DownloadIcon, GitHubIcon, MenuIcon } from "../icons";
 import { Typography } from "../typography";
-import { SIDEBAR_FETCHER_KEY, useOptimisticSidebarMode } from "~/utils/sidebar";
 import { Button } from "../button";
 import { DarkModeToggle } from "./dark-mode";
 import { LanguageToggle } from "./language";
@@ -22,57 +21,62 @@ function NavLink({ children, to }: LinkProps) {
 
 export function SidebarToggle() {
   const { t } = useTranslation();
-  const requestInfo = useRequestInfo();
-  const fetcher = useFetcher({ key: SIDEBAR_FETCHER_KEY });
-  const optimisticMode = useOptimisticSidebarMode();
+  const [showSidebar, setShowSidebar] = useState(false);
 
-  const mode = optimisticMode ?? requestInfo.userPrefs.sidebar ?? "false";
-  const isOpen = mode === "true";
-  const nextMode = isOpen ? "false" : "true";
-
-  const sidebarStyles = isOpen
-    ? "fixed shadow-2xl bg-white dark:bg-black ring-1 ring-black/10 dark:ring-white/10 transition-all ease-in-out duration-100 inset-y-0 right-0 h-full max-w-xs w-full flex flex-col divide-y"
-    : "hidden";
-
-  const overlayStyles = isOpen
-    ? "fixed inset-0 bg-gray-900/10 opacity-100 backdrop-blur-sm"
-    : "hidden";
+  useEffect(() => {
+    if (showSidebar) {
+      document.body.classList.add("overflow-y-hidden");
+      document.body.classList.add("pr-[15px]");
+      document.body.classList.remove("overflow-y-scroll");
+    } else {
+      document.body.classList.add("overflow-y-scroll");
+      document.body.classList.remove("overflow-y-hidden");
+      document.body.classList.remove("pr-[15px]");
+    }
+  }, [showSidebar]);
 
   return (
     <>
-      <fetcher.Form method="POST" action="/action/set-sidebar">
-        <input type="hidden" name="sidebar" value={nextMode} />
-
-        <button id="overlay" className={overlayStyles} type="submit" />
-
-        <IconButton title={t("menu")}>
+      {!showSidebar ? (
+        <IconButton
+          title={t("open_sidebar")}
+          onClick={() => setShowSidebar(true)}
+        >
           <MenuIcon />
         </IconButton>
-      </fetcher.Form>
+      ) : null}
 
-      <aside className={sidebarStyles}>
-        <NavLink
-          to="#about"
-          className="p-6 hover:bg-slate-100 dark:hover:bg-slate-800"
-        >
+      {showSidebar ? (
+        <div
+          id="overlay"
+          className="fixed inset-0 bg-gray-900/10 opacity-100 backdrop-blur-sm cursor-default"
+          onClick={() => setShowSidebar(false)}
+        />
+      ) : null}
+
+      <aside
+        className={`fixed shadow-2xl bg-white dark:bg-black ring-1 ring-black/10 dark:ring-white/10 ease-in-out duration-300 inset-y-0 right-0 h-full sm:max-w-xs w-full flex flex-col divide-y overflow-auto ${
+          showSidebar ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="p-6">
+          <IconButton
+            title={t("close_sidebar")}
+            onClick={() => setShowSidebar(false)}
+          >
+            <CloseIcon />
+          </IconButton>
+        </div>
+        <NavLink to="#about">
           <Typography size="body2">{t("about")}</Typography>
         </NavLink>
-        <NavLink
-          to="#skills"
-          className="p-6 hover:bg-slate-100 dark:hover:bg-slate-800"
-        >
+        <NavLink to="#skills">
           <Typography size="body2">{t("skills")}</Typography>
         </NavLink>
-        <NavLink
-          to="#projects"
-          className="p-6 hover:bg-slate-100 dark:hover:bg-slate-800"
-        >
+        <NavLink to="#projects">
           <Typography size="body2">{t("projects")}</Typography>
         </NavLink>
-        <NavLink
-          to="#contact"
-          className="p-6 hover:bg-slate-100 dark:hover:bg-slate-800"
-        >
+        <NavLink to="#contact">
           <Typography size="body2">{t("contact")}</Typography>
         </NavLink>
         <div className="p-6 flex flex-col gap-4">
