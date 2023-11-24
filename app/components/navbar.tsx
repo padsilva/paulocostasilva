@@ -1,12 +1,13 @@
 import { Link, type LinkProps } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
-import { CodeIcon, DownloadIcon, GitHubIcon } from "./icons";
+import { DownloadIcon, GitHubIcon } from "./icons";
 import { Typography } from "./typography";
 import { Button } from "./button";
 import { DarkModeToggle } from "./toggles/dark-mode";
 import { LanguageToggle } from "./toggles/language";
 import { SidebarToggle } from "./toggles/sidebar";
+import { Logo } from "./logo";
 
 function NavLink({ children, to }: LinkProps) {
   return (
@@ -26,23 +27,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 2xl:px-64 xl:px-32 lg:px-16 px-8 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
       <nav className="flex justify-between items-center">
-        <Link to="">
-          <div className="flex items-center justify-center gap-2">
-            <div className="text-black dark:text-white">
-              <CodeIcon />
-            </div>
-            <div className="flex flex-col items-center select-none">
-              <Typography size="h2">Paulo</Typography>
-              <div className="flex items-center gap-0.5 self-stretch">
-                <hr className="flex-grow border-t-2 border-black dark:border-white" />
-                <Typography size="caption" className="flex-shrink">
-                  Costa Silva
-                </Typography>
-                <hr className="flex-grow border-t-2 border-black dark:border-white" />
-              </div>
-            </div>
-          </div>
-        </Link>
+        <Logo />
         <div className="hidden md:flex md:items-center md:gap-4">
           <NavLink to="#about">
             <Typography size="body2">{t("about")}</Typography>

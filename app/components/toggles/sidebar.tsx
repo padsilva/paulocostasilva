@@ -8,6 +8,7 @@ import { Typography } from "../typography";
 import { Button } from "../button";
 import { DarkModeToggle } from "./dark-mode";
 import { LanguageToggle } from "./language";
+import { Logo } from "../logo";
 
 function NavLink({ children, onClick, to }: LinkProps) {
   return (
@@ -60,7 +61,8 @@ export function SidebarToggle() {
           showSidebar ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-6">
+        <div className="flex justify-between items-center px-6 py-4">
+          <Logo onClick={() => setShowSidebar(false)} />
           <IconButton
             title={t("close_sidebar")}
             onClick={() => setShowSidebar(false)}
