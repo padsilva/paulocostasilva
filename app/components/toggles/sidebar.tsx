@@ -47,11 +47,11 @@ export function SidebarToggle() {
       ) : null}
 
       <aside
-        className={`fixed shadow-2xl bg-white dark:bg-black ring-1 ring-black/10 dark:ring-white/10 ease-in-out duration-300 inset-y-0 right-0 h-full sm:max-w-xs w-full flex flex-col divide-y overflow-auto ${
+        className={`fixed shadow-2xl bg-white dark:bg-black ring-1 ring-black/10 dark:ring-white/10 ease-in-out duration-300 inset-y-0 right-0 h-full sm:max-w-xs w-full flex flex-col divide-y divide-gray-800 overflow-auto ${
           showSidebar ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center px-6 py-4">
+        <div className="flex justify-between items-center px-6 py-4 bg-slate-100 dark:bg-slate-900">
           <Logo onClick={() => setShowSidebar(false)} />
           <IconButton
             title={t("close_sidebar")}

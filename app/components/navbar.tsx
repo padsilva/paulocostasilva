@@ -13,7 +13,7 @@ export function Navbar() {
   const { t } = useTranslation();
 
   return (
-    <header className="sticky top-0 2xl:px-64 xl:px-32 lg:px-16 px-8 py-4 border-b-[1px] dark:border-b-[#272D2B] bg-slate-100 dark:bg-slate-900">
+    <header className="sticky top-0 2xl:px-64 xl:px-32 lg:px-16 px-8 py-4 bg-slate-100 dark:bg-slate-900">
       <nav className="flex justify-between items-center">
         <Logo />
         <div className="hidden md:flex md:items-center md:gap-4">
