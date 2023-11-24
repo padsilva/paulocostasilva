@@ -1,6 +1,5 @@
-import { Link, type LinkProps } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
-
 import { DownloadIcon, GitHubIcon } from "./icons";
 import { Typography } from "./typography";
 import { Button } from "./button";
@@ -8,18 +7,7 @@ import { DarkModeToggle } from "./toggles/dark-mode";
 import { LanguageToggle } from "./toggles/language";
 import { SidebarToggle } from "./toggles/sidebar";
 import { Logo } from "./logo";
-
-function NavLink({ children, to }: LinkProps) {
-  return (
-    <Link
-      className={
-        "relative after:bg-black dark:after:bg-white after:absolute after:h-0.5 after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:transition-all after:duration-500 capitalize"
-      }
-      to={to}
-      children={children}
-    />
-  );
-}
+import { NavLink } from "./navlink";
 
 export function Navbar() {
   const { t } = useTranslation();

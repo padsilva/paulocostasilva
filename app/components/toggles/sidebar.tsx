@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, type LinkProps } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
 import { IconButton } from "../icon-button";
@@ -9,17 +9,7 @@ import { Button } from "../button";
 import { DarkModeToggle } from "./dark-mode";
 import { LanguageToggle } from "./language";
 import { Logo } from "../logo";
-
-function NavLink({ children, onClick, to }: LinkProps) {
-  return (
-    <Link
-      onClick={onClick}
-      className={"p-6 hover:bg-slate-100 dark:hover:bg-slate-800 capitalize"}
-      to={to}
-      children={children}
-    />
-  );
-}
+import { NavLink } from "../navlink";
 
 export function SidebarToggle() {
   const { t } = useTranslation();
