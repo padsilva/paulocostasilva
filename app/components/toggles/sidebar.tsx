@@ -9,9 +9,10 @@ import { Button } from "../button";
 import { DarkModeToggle } from "./dark-mode";
 import { LanguageToggle } from "./language";
 
-function NavLink({ children, to }: LinkProps) {
+function NavLink({ children, onClick, to }: LinkProps) {
   return (
     <Link
+      onClick={onClick}
       className={"p-6 hover:bg-slate-100 dark:hover:bg-slate-800 capitalize"}
       to={to}
       children={children}
@@ -67,16 +68,16 @@ export function SidebarToggle() {
             <CloseIcon />
           </IconButton>
         </div>
-        <NavLink to="#about">
+        <NavLink to="#about" onClick={() => setShowSidebar(false)}>
           <Typography size="body2">{t("about")}</Typography>
         </NavLink>
-        <NavLink to="#skills">
+        <NavLink to="#skills" onClick={() => setShowSidebar(false)}>
           <Typography size="body2">{t("skills")}</Typography>
         </NavLink>
-        <NavLink to="#projects">
+        <NavLink to="#projects" onClick={() => setShowSidebar(false)}>
           <Typography size="body2">{t("projects")}</Typography>
         </NavLink>
-        <NavLink to="#contact">
+        <NavLink to="#contact" onClick={() => setShowSidebar(false)}>
           <Typography size="body2">{t("contact")}</Typography>
         </NavLink>
         <div className="py-6 sm:px-10 px-20 flex flex-col gap-4">
