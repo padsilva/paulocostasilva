@@ -1,15 +1,17 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import { useEffect, useState } from "react";
 import { Link } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
 import { IconButton } from "../icon-button";
 import { CloseIcon, DownloadIcon, GitHubIcon, MenuIcon } from "../icons";
-import { Typography } from "../typography";
 import { Button } from "../button";
 import { DarkModeToggle } from "./dark-mode";
 import { LanguageToggle } from "./language";
 import { Logo } from "../logo";
 import { NavLink } from "../navlink";
+import { MENU_LIST } from "../navbar";
+import { Transition } from "../transition";
 
 export function SidebarToggle() {
   const { t } = useTranslation();
@@ -47,7 +49,7 @@ export function SidebarToggle() {
       ) : null}
 
       <aside
-        className={`fixed shadow-2xl bg-white dark:bg-black ring-1 ring-black/10 dark:ring-white/10 ease-in-out duration-300 inset-y-0 right-0 h-full sm:max-w-xs w-full flex flex-col divide-y divide-gray-800 overflow-auto ${
+        className={`fixed shadow-2xl bg-white dark:bg-black ring-1 ring-black/10 dark:ring-white/10 ease-in-out duration-300 inset-y-0 right-0 h-full sm:max-w-xs w-full flex flex-col divide-y divide-gray-200 dark:divide-gray-800 overflow-auto ${
           showSidebar ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -60,23 +62,23 @@ export function SidebarToggle() {
             <CloseIcon />
           </IconButton>
         </div>
-        <NavLink to="#about" onClick={() => setShowSidebar(false)}>
-          <Typography size="body2">{t("about")}</Typography>
-        </NavLink>
-        <NavLink to="#skills" onClick={() => setShowSidebar(false)}>
-          <Typography size="body2">{t("skills")}</Typography>
-        </NavLink>
-        <NavLink to="#projects" onClick={() => setShowSidebar(false)}>
-          <Typography size="body2">{t("projects")}</Typography>
-        </NavLink>
-        <NavLink to="#contact" onClick={() => setShowSidebar(false)}>
-          <Typography size="body2">{t("contact")}</Typography>
-        </NavLink>
+
+        {MENU_LIST.map((entry) => (
+          <NavLink
+            key={entry}
+            to={`#${entry}`}
+            onClick={() => setShowSidebar(false)}
+          >
+            <Transition label={entry} />
+          </NavLink>
+        ))}
+
         <div className="py-6 sm:px-10 px-20 flex flex-col gap-4">
           <Button
             label={t("download_cv")}
             startIcon={<DownloadIcon />}
             title={t("click_download_cv")}
+            transition
           />
           <DarkModeToggle />
           <LanguageToggle />
@@ -86,9 +88,10 @@ export function SidebarToggle() {
             target="_blank"
           >
             <Button
-              label="GitHub"
+              label={t("repository")}
               startIcon={<GitHubIcon size={24} />}
               title={t("github_link")}
+              transition
               variant="outline"
             />
           </Link>

@@ -6,7 +6,7 @@ import { Skills } from "~/components/sections/skills";
 
 export default function Index() {
   return (
-    <main className="flex flex-col items-center 2xl:px-64 xl:px-32 lg:px-16 px-8">
+    <main className="flex flex-col items-center 2xl:px-64 xl:px-32 md:px-16 px-8 py-4">
       <Hero />
       <About />
       <Skills />

@@ -54,13 +54,13 @@ export function DarkModeToggle() {
     <fetcher.Form method="POST" action="/action/set-theme">
       <input type="hidden" name="theme" value={nextMode} />
 
-      <div className="md:hidden flex w-full">
-        <Button label={tMode} title={title} variant="outline">
+      <div className="lg:hidden flex w-full">
+        <Button label={tMode} title={title} variant="outline" transition>
           <Icons mode={mode} />
         </Button>
       </div>
 
-      <div className="md:flex hidden w-full">
+      <div className="lg:flex hidden w-full">
         <IconButton title={title}>
           <Icons mode={mode} />
         </IconButton>

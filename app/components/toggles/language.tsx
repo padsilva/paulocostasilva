@@ -1,5 +1,4 @@
 import { useFetcher } from "@remix-run/react";
-import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
 import { useRequestInfo } from "~/utils/request-info";
@@ -7,6 +6,7 @@ import { LANG_FETCHER_KEY, useOptimisticLang } from "~/utils/lang";
 import { IconButton } from "../icon-button";
 import { Button } from "../button";
 import { LanguageIcon } from "../icons";
+import { Transition } from "../transition";
 
 export function LanguageToggle() {
   const { t } = useTranslation();
@@ -19,9 +19,6 @@ export function LanguageToggle() {
   const nextLang = isEnLang ? "pt" : "en";
   const tLang = t(`${nextLang}_lang`);
 
-  const iconSpanClassName =
-    "absolute inset-0 transform transition-transform duration-700";
-
   return (
     <fetcher.Form
       method="POST"
@@ -30,33 +27,19 @@ export function LanguageToggle() {
     >
       <input type="hidden" name="lang" value={nextLang} />
 
-      <div className="md:hidden flex w-full">
+      <div className="lg:hidden flex w-full">
         <Button
           label={tLang}
           startIcon={<LanguageIcon />}
           title={t("switch_lang", { tLang })}
           variant="outline"
+          transition
         />
       </div>
 
-      <div className="md:flex hidden w-full">
+      <div className="lg:flex hidden w-full">
         <IconButton title={t("switch_lang", { tLang })}>
-          <span
-            className={clsx(
-              iconSpanClassName,
-              isEnLang ? "translate-y-[100px]" : ""
-            )}
-          >
-            PT
-          </span>
-          <span
-            className={clsx(
-              iconSpanClassName,
-              !isEnLang ? "-translate-y-[100px]" : ""
-            )}
-          >
-            EN
-          </span>
+          <Transition label="lang" as="span" />
         </IconButton>
       </div>
     </fetcher.Form>

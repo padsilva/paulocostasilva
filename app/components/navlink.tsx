@@ -4,11 +4,11 @@ export function NavLink({ children, onClick, to }: LinkProps) {
   return (
     <Link
       className={
-        "capitalize md:p-0 md:hover:bg-inherit md:dark:hover:bg-inherit md:relative md:after:bg-black md:dark:after:bg-white md:after:absolute md:after:h-0.5 md:after:bottom-0 md:after:left-0 md:after:w-0 md:hover:after:w-full md:after:transition-all md:after:duration-500 p-6 hover:bg-slate-100 dark:hover:bg-slate-800"
+        "capitalize lg:p-0 lg:hover:bg-inherit lg:dark:hover:bg-inherit lg:relative lg:after:bg-black lg:dark:after:bg-white lg:after:absolute lg:after:h-0.5 lg:after:bottom-0 lg:after:left-0 lg:after:w-0 lg:hover:after:w-full lg:after:transition-all lg:after:duration-500 p-6 hover:bg-slate-100 dark:hover:bg-slate-800"
       }
       to={to}
-      children={children}
       onClick={onClick}
+      children={children}
     />
   );
 }

@@ -13,5 +13,7 @@
   "dark_mode": "modo escuro",
   "light_mode": "modo claro",
   "en_lang": "Inglês",
-  "pt_lang": "Português"
+  "pt_lang": "Português",
+  "lang": "PT",
+  "repository": "repositório"
 }

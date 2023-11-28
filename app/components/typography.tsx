@@ -26,13 +26,12 @@ const titleColors = {
   button: "text-white dark:text-black",
 };
 
-export function Typography({
-  variant = "primary",
-  size,
-  as,
-  className,
-  ...rest
-}: TitleProps & { size: keyof typeof fontSize }) {
+export type TypographyProps = TitleProps & { size: keyof typeof fontSize };
+
+export const Typography = React.forwardRef(function Typography(
+  { variant = "primary", size, as, className, ...rest }: TypographyProps,
+  ref
+) {
   const isParagraph =
     size === "body1" ||
     size === "body2" ||
@@ -42,8 +41,9 @@ export function Typography({
   const Tag = as ?? (isParagraph ? "p" : size);
   return (
     <Tag
+      ref={ref}
       className={clsx(fontSize[size], titleColors[variant], className)}
       {...rest}
     />
   );
-}
+});
