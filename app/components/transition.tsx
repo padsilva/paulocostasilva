@@ -9,13 +9,19 @@ export function Transition({
   children,
   icon,
   label,
+  noTransitionMobile,
   size = "body2",
   ...rest
-}: { icon?: ReactElement; label?: string } & Partial<TypographyProps>) {
+}: {
+  icon?: ReactElement;
+  label?: string;
+  noTransitionMobile?: boolean;
+} & Partial<TypographyProps>) {
   const requestInfo = useRequestInfo();
   const { t } = useTranslation();
   const [isAnimating, setIsAnimating] = useState(true);
   const [message, setMessage] = useState(t(label || ""));
+  const [isMobile, setIsMobile] = useState(false);
   const nodeRef = useRef(null);
 
   const handleAnimation = () => {
@@ -28,6 +34,23 @@ export function Transition({
   };
 
   useEffect(() => {
+    const initialMatch = window.matchMedia("(max-width: 1024px)").matches;
+    setIsMobile(initialMatch);
+
+    const mediaQueryList = window.matchMedia("(max-width: 1024px)");
+
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQueryList.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQueryList.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
+  useEffect(() => {
     handleAnimation();
   }, [requestInfo.userPrefs.lang]);
 
@@ -36,7 +59,7 @@ export function Transition({
       in={isAnimating}
       nodeRef={nodeRef}
       timeout={500}
-      classNames="fade"
+      classNames={isMobile && noTransitionMobile ? "" : "fade"}
       unmountOnExit
       onExited={() => {
         setIsAnimating(true);
