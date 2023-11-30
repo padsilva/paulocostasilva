@@ -20,12 +20,15 @@ export function Sidebar({
   const { t } = useTranslation();
 
   useEffect(() => {
-    isSidebarOpen
-      ? document.body.classList.add("fixed")
-      : document.body.classList.remove("fixed");
-    isSidebarOpen
-      ? document.body.classList.add("overflow-y-scroll")
-      : document.body.classList.remove("overflow-y-scroll");
+    if (isSidebarOpen) {
+      document.body.classList.add("overflow-y-hidden");
+      document.body.classList.add("pr-[15px]");
+      document.body.classList.remove("overflow-y-scroll");
+    } else {
+      document.body.classList.add("overflow-y-scroll");
+      document.body.classList.remove("overflow-y-hidden");
+      document.body.classList.remove("pr-[15px]");
+    }
   }, [isSidebarOpen]);
 
   return (

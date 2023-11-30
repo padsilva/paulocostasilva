@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
 
 import { CloseIcon, DownloadIcon, GitHubIcon, MenuIcon } from "./icons";
 import { Button } from "./button";
@@ -22,7 +23,12 @@ export function Navbar({
   const { t } = useTranslation();
 
   return (
-    <nav className="fixed w-full z-10 2xl:px-64 xl:px-32 md:px-16 px-8 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800">
+    <nav
+      className={clsx(
+        "fixed w-full z-10 2xl:px-64 xl:px-32 md:px-16 px-8 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800",
+        { "md:pr-[79px] pr-[47px]": isSidebarOpen }
+      )}
+    >
       <Logo onClick={() => onToggleSidebar(false)} />
       <div className="hidden lg:flex lg:items-center lg:gap-4">
         {MENU_LIST.map((entry) => (
