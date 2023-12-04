@@ -26,8 +26,8 @@ export function Navbar() {
     <nav
       className={clsx(
         "fixed w-full z-10 2xl:px-64 xl:px-32 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800",
-        { "md:px-16 px-8": !isSidebarOpen },
-        { [styles]: isSidebarOpen }
+        { "md:px-16 px-8": !isSidebarOpen || !width },
+        { [styles]: isSidebarOpen && width }
       )}
     >
       <Logo onClick={() => toggleSidebar(false)} />

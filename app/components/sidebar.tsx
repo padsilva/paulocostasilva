@@ -18,19 +18,17 @@ export function Sidebar() {
   const { width } = useScrollbarSize();
   const { isSidebarOpen, toggleSidebar } = useSidebar();
 
-  const styles = `pr-[${width}px]`;
-
   useEffect(() => {
-    if (isSidebarOpen) {
+    if (isSidebarOpen && width) {
       document.body.classList.add("overflow-y-hidden");
-      document.body.classList.add(styles);
+      document.body.classList.add(`pr-[${width}px]`);
       document.body.classList.remove("overflow-y-scroll");
     } else {
       document.body.classList.remove("overflow-y-hidden");
-      document.body.classList.remove(styles);
+      document.body.classList.remove(`pr-[${width}px]`);
       document.body.classList.add("overflow-y-scroll");
     }
-  }, [isSidebarOpen, styles]);
+  }, [isSidebarOpen, width]);
 
   return (
     <div
