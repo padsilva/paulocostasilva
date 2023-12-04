@@ -9,6 +9,7 @@ import { LanguageToggle } from "./toggles/language";
 import { MENU_LIST } from "./navbar";
 import { NavLink } from "./navlink";
 import { Transition } from "./transition";
+import useScrollbarSize from "~/utils/scrollbar-size";
 
 export function Sidebar({
   isSidebarOpen,
@@ -18,18 +19,19 @@ export function Sidebar({
   onToggleSidebar: () => void;
 }) {
   const { t } = useTranslation();
+  const { width } = useScrollbarSize();
 
   useEffect(() => {
     if (isSidebarOpen) {
       document.body.classList.add("overflow-y-hidden");
-      document.body.classList.add("pr-[15px]");
+      document.body.classList.add(`pr-[${width}px]`);
       document.body.classList.remove("overflow-y-scroll");
     } else {
       document.body.classList.add("overflow-y-scroll");
       document.body.classList.remove("overflow-y-hidden");
-      document.body.classList.remove("pr-[15px]");
+      document.body.classList.remove(`pr-[${width}px]`);
     }
-  }, [isSidebarOpen]);
+  }, [isSidebarOpen, width]);
 
   return (
     <div
