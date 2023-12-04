@@ -1,12 +1,12 @@
+import { forwardRef, type ElementType, type ReactNode } from "react";
 import { clsx } from "clsx";
-import * as React from "react";
 
 type TitleProps = {
   variant?: "primary" | "secondary" | "button";
-  as?: React.ElementType;
+  as?: ElementType;
   className?: string;
   id?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const fontSize = {
@@ -28,7 +28,7 @@ const titleColors = {
 
 export type TypographyProps = TitleProps & { size: keyof typeof fontSize };
 
-export const Typography = React.forwardRef(function Typography(
+export const Typography = forwardRef(function Typography(
   { variant = "primary", size, as, className, ...rest }: TypographyProps,
   ref
 ) {

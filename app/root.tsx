@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   json,
@@ -22,6 +21,7 @@ import stylesheet from "~/tailwind.css";
 import { Footer } from "./components/footer";
 import { Navbar } from "./components/navbar";
 import { Sidebar } from "./components/sidebar";
+import { SidebarProvider } from "./components/hooks/use-sidebar";
 
 import { getLang } from "./utils/lang.server";
 import { getTheme } from "./utils/theme.server";
@@ -70,11 +70,6 @@ export default function App() {
   const { i18n } = useTranslation();
   const lang = useLang();
   const theme = useTheme();
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = (isToClose?: boolean) => {
-    setSidebarOpen(isToClose ?? !isSidebarOpen);
-  };
 
   useChangeLanguage(lang);
 
@@ -90,20 +85,19 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-white dark:bg-black transition duration-500 min-h-screen">
-        <Navbar isSidebarOpen={isSidebarOpen} onToggleSidebar={toggleSidebar} />
+        <SidebarProvider>
+          <Navbar />
 
-        <Sidebar
-          isSidebarOpen={isSidebarOpen}
-          onToggleSidebar={toggleSidebar}
-        />
+          <Sidebar />
 
-        <Outlet />
+          <Outlet />
 
-        <Footer />
+          <Footer />
 
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </SidebarProvider>
       </body>
     </html>
   );

@@ -1,11 +1,11 @@
-import { type MouseEventHandler } from "react";
+import type { ReactNode, MouseEventHandler } from "react";
 
 export function IconButton({
   children,
   title,
   onClick,
 }: {
-  children: React.ReactNode | React.ReactNode[];
+  children: ReactNode | ReactNode[];
   title: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {

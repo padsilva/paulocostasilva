@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import type { ReactElement, ReactNode } from "react";
 import clsx from "clsx";
 
 import { Typography } from "./typography";
@@ -13,7 +13,7 @@ export function Button({
   transition = false,
   variant = "primary",
 }: {
-  children?: React.ReactNode | React.ReactNode[];
+  children?: ReactNode | ReactNode[];
   endIcon?: ReactElement;
   label?: string;
   startIcon?: ReactElement;

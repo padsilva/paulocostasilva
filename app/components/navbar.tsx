@@ -10,26 +10,27 @@ import { LanguageToggle } from "./toggles/language";
 import { Logo } from "./logo";
 import { NavLink } from "./navlink";
 import { Transition } from "./transition";
+import { useSidebar } from "./hooks/use-sidebar";
+import useScrollbarSize from "~/utils/scrollbar-size";
 
 export const MENU_LIST = ["about", "skills", "projects", "contact"];
 
-export function Navbar({
-  isSidebarOpen,
-  onToggleSidebar,
-}: {
-  isSidebarOpen: boolean;
-  onToggleSidebar: (param?: boolean) => void;
-}) {
+export function Navbar() {
   const { t } = useTranslation();
+  const { isSidebarOpen, toggleSidebar } = useSidebar();
+  const { width } = useScrollbarSize();
+
+  const styles = `md:pl-16 pl-8 md:pr-[${64 + width}px] pr-[${32 + width}px]`;
 
   return (
     <nav
       className={clsx(
-        "fixed w-full z-10 2xl:px-64 xl:px-32 md:px-16 px-8 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800",
-        { "md:pr-[79px] pr-[47px]": isSidebarOpen }
+        "fixed w-full z-10 2xl:px-64 xl:px-32 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800",
+        { "md:px-16 px-8": !isSidebarOpen },
+        { [styles]: isSidebarOpen }
       )}
     >
-      <Logo onClick={() => onToggleSidebar(false)} />
+      <Logo onClick={() => toggleSidebar(false)} />
       <div className="hidden lg:flex lg:items-center lg:gap-4">
         {MENU_LIST.map((entry) => (
           <NavLink key={entry} to={`#${entry}`}>
@@ -58,7 +59,7 @@ export function Navbar({
       <div className="lg:hidden">
         <IconButton
           title={t(isSidebarOpen ? "open_sidebar" : "close_sidebar")}
-          onClick={() => onToggleSidebar()}
+          onClick={() => toggleSidebar()}
         >
           {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
