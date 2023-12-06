@@ -39,7 +39,7 @@ export function LanguageToggle() {
 
       <div className="lg:flex hidden w-full">
         <IconButton title={t("switch_lang", { tLang })}>
-          <Transition label="lang" as="span" />
+          <Transition as="span" label="lang" transitionMobile />
         </IconButton>
       </div>
     </fetcher.Form>

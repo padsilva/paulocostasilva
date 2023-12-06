@@ -13,11 +13,10 @@ export function Hero() {
           <Avatar size="medium" name="profile" />
         </div>
         <div className="flex flex-col justify-center items-start self-stretch flex-[1_0_0] gap-2">
-          <Transition label={t("greetings")} size="h1" noTransitionMobile />
+          <Transition label={t("greetings")} size="h1" />
           <Transition
             className="text-justify whitespace-pre-line"
             label={t("abstract")}
-            noTransitionMobile
           />
         </div>
       </div>

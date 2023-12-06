@@ -10,8 +10,9 @@ import { LanguageToggle } from "./toggles/language";
 import { MENU_LIST } from "./navbar";
 import { NavLink } from "./navlink";
 import { Transition } from "./transition";
-import useScrollbarSize from "~/utils/scrollbar-size";
 import { useSidebar } from "./hooks/use-sidebar";
+
+import useScrollbarSize from "~/utils/scrollbar-size";
 
 export function Sidebar() {
   const { t } = useTranslation();
@@ -48,7 +49,7 @@ export function Sidebar() {
             to={`#${entry}`}
             onClick={() => toggleSidebar()}
           >
-            <Transition label={entry} />
+            <Transition label={entry} transitionMobile />
           </NavLink>
         ))}
       </div>
