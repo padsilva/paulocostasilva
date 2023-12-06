@@ -37,6 +37,7 @@ export function Button({
       {startIcon && transition ? (
         <Transition
           icon={startIcon}
+          transitionMobile
           variant={isOutline ? "primary" : "button"}
         />
       ) : (
@@ -47,6 +48,7 @@ export function Button({
           {transition ? (
             <Transition
               icon={startIcon}
+              transitionMobile
               variant={isOutline ? "primary" : "button"}
             >
               {children}
@@ -59,10 +61,11 @@ export function Button({
       {label ? (
         transition ? (
           <Transition
-            label={label}
-            variant={isOutline ? "primary" : "button"}
             as="span"
             className="first-letter:capitalize"
+            label={label}
+            transitionMobile
+            variant={isOutline ? "primary" : "button"}
           />
         ) : (
           <Typography
@@ -76,7 +79,11 @@ export function Button({
         )
       ) : null}
       {endIcon && transition ? (
-        <Transition icon={endIcon} variant={isOutline ? "primary" : "button"} />
+        <Transition
+          icon={endIcon}
+          transitionMobile
+          variant={isOutline ? "primary" : "button"}
+        />
       ) : (
         endIcon
       )}

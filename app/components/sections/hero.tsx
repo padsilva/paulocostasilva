@@ -7,17 +7,16 @@ export function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="flex flex-wrap gap-12" id="#">
-      <div className="flex md:flex-row flex-col gap-12 justify-center">
-        <div className="flex flex-col justify-center md:items-start items-center self-stretch">
+    <section className="flex flex-wrap" id="#">
+      <div className="flex lg:flex-row flex-col lg:gap-12 gap-8 justify-center">
+        <div className="flex flex-col justify-center lg:items-start items-center self-stretch">
           <Avatar size="medium" name="profile" />
         </div>
         <div className="flex flex-col justify-center items-start self-stretch flex-[1_0_0] gap-2">
-          <Transition label={t("greetings")} size="h1" noTransitionMobile />
+          <Transition label={t("greetings")} size="h1" />
           <Transition
             className="text-justify whitespace-pre-line"
             label={t("abstract")}
-            noTransitionMobile
           />
         </div>
       </div>

@@ -2,26 +2,29 @@ import { type ReactElement, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CSSTransition } from "react-transition-group";
 
-import { useRequestInfo } from "~/utils/request-info";
 import { Typography, type TypographyProps } from "./typography";
+import { useSidebar } from "./hooks/use-sidebar";
+
+import { useRequestInfo } from "~/utils/request-info";
 
 export function Transition({
   children,
   icon,
   label,
-  noTransitionMobile,
+  transitionMobile = false,
   size = "body2",
   ...rest
 }: {
   icon?: ReactElement;
   label?: string;
-  noTransitionMobile?: boolean;
+  transitionMobile?: boolean;
 } & Partial<TypographyProps>) {
   const requestInfo = useRequestInfo();
   const { t } = useTranslation();
+  const { isSidebarOpen } = useSidebar();
+
   const [isAnimating, setIsAnimating] = useState(true);
   const [message, setMessage] = useState(t(label || ""));
-  const [isMobile, setIsMobile] = useState(false);
   const nodeRef = useRef(null);
 
   const handleAnimation = () => {
@@ -34,23 +37,6 @@ export function Transition({
   };
 
   useEffect(() => {
-    const initialMatch = window.matchMedia("(max-width: 1024px)").matches;
-    setIsMobile(initialMatch);
-
-    const mediaQueryList = window.matchMedia("(max-width: 1024px)");
-
-    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQueryList.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQueryList.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
-  useEffect(() => {
     handleAnimation();
   }, [requestInfo.userPrefs.lang]);
 
@@ -59,7 +45,7 @@ export function Transition({
       in={isAnimating}
       nodeRef={nodeRef}
       timeout={500}
-      classNames={isMobile && noTransitionMobile ? "" : "fade"}
+      classNames={isSidebarOpen && !transitionMobile ? "" : "fade"}
       unmountOnExit
       onExited={() => {
         setIsAnimating(true);

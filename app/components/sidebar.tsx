@@ -10,8 +10,9 @@ import { LanguageToggle } from "./toggles/language";
 import { MENU_LIST } from "./navbar";
 import { NavLink } from "./navlink";
 import { Transition } from "./transition";
-import useScrollbarSize from "~/utils/scrollbar-size";
 import { useSidebar } from "./hooks/use-sidebar";
+
+import useScrollbarSize from "~/utils/scrollbar-size";
 
 export function Sidebar() {
   const { t } = useTranslation();
@@ -33,7 +34,7 @@ export function Sidebar() {
   return (
     <div
       className={clsx(
-        "lg:hidden fixed pt-[89px] h-full w-full flex flex-col bg-white dark:bg-black transition-transform transform overflow-y-auto",
+        "lg:hidden fixed z-20 pt-[89px] h-full w-full flex flex-col bg-white dark:bg-black transition-transform transform overflow-y-auto",
         {
           "translate-x-0": isSidebarOpen,
           "translate-x-full": !isSidebarOpen,
@@ -48,7 +49,7 @@ export function Sidebar() {
             to={`#${entry}`}
             onClick={() => toggleSidebar()}
           >
-            <Transition label={entry} />
+            <Transition label={entry} transitionMobile />
           </NavLink>
         ))}
       </div>

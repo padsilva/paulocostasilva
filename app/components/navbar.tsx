@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <nav
       className={clsx(
-        "fixed w-full z-10 2xl:px-64 xl:px-32 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800",
+        "fixed w-full z-30 2xl:px-48 xl:px-36 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800",
         { "md:px-16 px-8": !isSidebarOpen || !width },
         { [styles]: isSidebarOpen && width }
       )}
@@ -34,7 +34,7 @@ export function Navbar() {
       <div className="hidden lg:flex lg:items-center lg:gap-4">
         {MENU_LIST.map((entry) => (
           <NavLink key={entry} to={`#${entry}`}>
-            <Transition label={entry} />
+            <Transition label={entry} transitionMobile />
           </NavLink>
         ))}
         <Button
