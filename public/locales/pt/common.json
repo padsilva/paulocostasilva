@@ -18,8 +18,8 @@
   "repository": "repositório",
   "greetings": "Olá, sou o Paulo!",
   "abstract": "Sou engenheiro de software e procuro desafios que possibilitem a evolução da minha carreira nesta área, à qual me tenho dedicado com entusiasmo ao longo destes anos.\nPretendo demonstrar todo o meu potencial e, em simultâneo, valorizar o meu trabalho com foco numa realização competente e eficaz.\nPara além da minha área de formação, existem outras das quais tenho interesse, nomeadamente: desporto, música, cinema e natureza.",
-  "education": "educação",
-  "experience": "experiência",
+  "education": "Formação Académica",
+  "experience": "Experiência Profissional",
   "master_title": "Mestrado, Engenharia Informática",
   "master_institute": "Universidade de Coimbra",
   "master_description": "Reforçados conhecimentos em diversas áreas da Engenharia Informática, nomeadamente: Engenharia de Redes de Comunicação, Sistemas e Computação, Sistemas de Informação e Engenharia de Software.\nAdicionalmente, foram adquiridas competências genéricas em análise e síntese, comunicação escrita e oral, capacidade de resolução de problemas, raciocínio crítico, capacidade de decisão, trabalho em grupo, aprendizagem autónoma e aplicação prática de conhecimentos teóricos.",
@@ -42,5 +42,6 @@
   "sr_eng_institute": "Critical Software",
   "sr_eng_description": "Serviços de consultoria na área da Engenharia de Software, presencialmente nos escritórios dos clientes, contribuindo para o desenvolvimento de capacidades de análise, negociação, resolução de conflitos e tomada de decisões em curtos períodos de tempo.",
   "actual_date": "Presente",
-  "event_link": "Clique para abrir a página de {{institute}}"
+  "event_link": "Clique para abrir a página de {{institute}}",
+  "contact_description": "Vamos conectar-nos e discutir oportunidades",
 }

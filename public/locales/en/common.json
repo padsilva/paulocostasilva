@@ -18,8 +18,8 @@
   "repository": "repository",
   "greetings": "Hi, I'm Paulo!",
   "abstract": "I'm a Software Engineer looking for challenges that allow the evolution of my career in this area, to which I have devoted myself with enthusiasm over the years.\nI want to show my full potential and, at the same time, value my work with a focus on competent and effective performance.\nBeyond my academic background, there are other areas that I'm interested in, such as: sports, music, cinema and nature.",
-  "education": "education",
-  "experience": "experience",
+  "education": "Academic Education",
+  "experience": "Professional Experience",
   "master_title": "Master of Science, Informatics Engineering",
   "master_institute": "University of Coimbra",
   "master_description": "Strengthened knowledge in different areas of Informatics Engineering, namely: Data Networks and Communication Engineering, Systems and Computation, Information Systems and Software Engineering.\nIn addition, generic skills in analysis and synthesis, written and oral communication, problem-solving approaches, critical thinking, decision-making group work, autonomous learning and practical application of theoretical knowledge were obtained.",
@@ -42,5 +42,6 @@
   "sr_eng_institute": "Critical Software",
   "sr_eng_description": "Software Engineering consulting services, at the customer offices, contributing to the development of skills of analysis, negotiation, conflict resolution and decision-making in short periods of time.",
   "actual_date": "Present",
-  "event_link": "Click to open {{institute}} webpage"
+  "event_link": "Click to open {{institute}} webpage",
+  "contact_description": "Let's connect and discuss opportunities",
 }
