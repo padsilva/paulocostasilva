@@ -6,7 +6,7 @@ Paulo Silva's portfolio - Showcasing experience, education, skills and projects.
 
 ### Prerequisites
 
-- Node.js >= 18.0.0
+- Node.js >= 20.0.0
 - npm or yarn package manager
 
 ### Development Setup
