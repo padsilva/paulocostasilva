@@ -22,4 +22,4 @@ updates:
       - npm-remix
       - npm-npmjs
     schedule:
-      interval: "daily"
+      interval: "weekly"
