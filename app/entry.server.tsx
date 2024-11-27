@@ -10,7 +10,7 @@ import { resolve } from "node:path";
 import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
-import isbot from "isbot";
+import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { createInstance, type i18n as i18nType } from "i18next";
 import { I18nextProvider, initReactI18next } from "react-i18next";
@@ -27,7 +27,7 @@ export default async function handleRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-  loadContext: AppLoadContext
+  loadContext: AppLoadContext,
 ) {
   const instance = createInstance();
   const lng = getLang(request) ?? (await i18next.getLocale(request));
@@ -49,14 +49,14 @@ export default async function handleRequest(
         responseStatusCode,
         responseHeaders,
         remixContext,
-        instance as i18nType
+        instance as i18nType,
       )
     : handleBrowserRequest(
         request,
         responseStatusCode,
         responseHeaders,
         remixContext,
-        instance as i18nType
+        instance as i18nType,
       );
 }
 
@@ -65,7 +65,7 @@ function handleBotRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-  instance: i18nType
+  instance: i18nType,
 ) {
   return new Promise((resolve, reject) => {
     let shellRendered = false;
@@ -89,7 +89,7 @@ function handleBotRequest(
             new Response(stream, {
               headers: responseHeaders,
               status: responseStatusCode,
-            })
+            }),
           );
 
           pipe(body);
@@ -106,7 +106,7 @@ function handleBotRequest(
             console.error(error);
           }
         },
-      }
+      },
     );
 
     setTimeout(abort, ABORT_DELAY);
@@ -118,7 +118,7 @@ function handleBrowserRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-  instance: i18nType
+  instance: i18nType,
 ) {
   return new Promise((resolve, reject) => {
     let shellRendered = false;
@@ -142,7 +142,7 @@ function handleBrowserRequest(
             new Response(stream, {
               headers: responseHeaders,
               status: responseStatusCode,
-            })
+            }),
           );
 
           pipe(body);
@@ -159,7 +159,7 @@ function handleBrowserRequest(
             console.error(error);
           }
         },
-      }
+      },
     );
 
     setTimeout(abort, ABORT_DELAY);
