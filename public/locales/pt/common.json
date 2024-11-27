@@ -44,4 +44,13 @@
   "actual_date": "Presente",
   "event_link": "Clique para abrir a página de {{institute}}",
   "contact_description": "Vamos conectar-nos e discutir oportunidades",
+  "projects_under_construction": "Esta secção está actualmente em desenvolvimento. Entretanto, sinta-se à vontade para espreitar o meu trabalho e contribuições no GitHub!",
+  "coming_soon": "Em Breve",
+  "languages_frameworks": "Linguagens e Bibliotecas",
+  "tools_platforms": "Ferramentas e Plataformas",
+  "other_competencies": "Outras competências",
+  "agile_methodologies": "Metodologias Ágeis",
+  "linux_environments": "Ambientes Linux",
+  "problem_solving": "Resolução de Problemas",
+  "leadership_mentoring": "Liderança e Mentoria"
 }

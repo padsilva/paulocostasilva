@@ -44,4 +44,13 @@
   "actual_date": "Present",
   "event_link": "Click to open {{institute}} webpage",
   "contact_description": "Let's connect and discuss opportunities",
+  "projects_under_construction": "The projects section is currently under development. In the meantime, feel free to check out my work and contributions on GitHub!",
+  "coming_soon": "Coming Soon",
+  "languages_frameworks": "Languages & Frameworks",
+  "tools_platforms": "Tools & Platforms",
+  "other_competencies": "Other Competencies",
+  "agile_methodologies": "Agile Methodologies",
+  "linux_environments": "Linux Environments",
+  "problem_solving": "Problem-solving",
+  "leadership_mentoring": "Leadership and Mentoring"
 }

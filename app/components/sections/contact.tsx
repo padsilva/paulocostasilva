@@ -8,19 +8,19 @@ const contactMethods = [
   {
     title: "Email",
     value: "mailto:pauloalexandreduartesilva@gmail.com",
-    icon: <Mail />,
+    icon: () => <Mail />,
     bgColor: "bg-blue-50",
   },
   {
     title: "GitHub",
     value: "https://github.com/padsilva",
-    icon: <GitHubIcon size={24} />,
+    icon: () => <GitHubIcon size={24} />,
     bgColor: "bg-gray-50",
   },
   {
     title: "LinkedIn",
     value: "https://www.linkedin.com/in/paulocostasilva/",
-    icon: <LinkedIn />,
+    icon: () => <LinkedIn />,
     bgColor: "bg-blue-50",
   },
 ];
@@ -50,7 +50,7 @@ export function Contact() {
             >
               <div className="flex items-center justify-center gap-2">
                 <div className="bg-inherit text-white dark:text-black group-hover:scale-110 transition-transform duration-300">
-                  {method.icon}
+                  {method.icon()}
                 </div>
                 <Transition className="font-semibold" size="body2">
                   {method.title}

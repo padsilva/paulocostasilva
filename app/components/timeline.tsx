@@ -29,8 +29,8 @@ export function Timeline({ events, section }: TimelineProps) {
   const lang = useLang();
 
   return (
-    <div className="flex flex-col gap-3">
-      <Transition className="capitalize" label={t(section)} size="h2" />
+    <div className="flex flex-col">
+      <Transition className="capitalize mb-12" label={t(section)} size="h2" />
 
       <div className="flex flex-col">
         {events.map(({ name, link, startDate, endDate }) => (
