@@ -38,7 +38,7 @@ export function Sidebar() {
         {
           "translate-x-0": isSidebarOpen,
           "translate-x-full": !isSidebarOpen,
-        }
+        },
       )}
     >
       <div className="divide-y divide-gray-200 dark:divide-gray-800 border-b border-b-gray-200 dark:border-b-gray-800">
@@ -55,12 +55,14 @@ export function Sidebar() {
       </div>
 
       <div className="container mx-auto py-6 md:px-48 sm:px-24 px-12 flex flex-col gap-4">
-        <Button
-          label={t("download_cv")}
-          startIcon={<DownloadIcon />}
-          title={t("click_download_cv")}
-          transition
-        />
+        <a href="/CV_PauloSilva_EN.pdf" download="CV_PauloSilva_EN.pdf">
+          <Button
+            label={t("download_cv")}
+            startIcon={<DownloadIcon />}
+            title={t("click_download_cv")}
+            transition
+          />
+        </a>
         <DarkModeToggle />
         <LanguageToggle />
         <Link

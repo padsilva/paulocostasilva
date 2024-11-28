@@ -17,7 +17,7 @@
   "lang": "PT",
   "repository": "repositório",
   "greetings": "Olá, sou o Paulo!",
-  "abstract": "Sou engenheiro de software e procuro desafios que possibilitem a evolução da minha carreira nesta área, à qual me tenho dedicado com entusiasmo ao longo destes anos.\nPretendo demonstrar todo o meu potencial e, em simultâneo, valorizar o meu trabalho com foco numa realização competente e eficaz.\nPara além da minha área de formação, existem outras das quais tenho interesse, nomeadamente: desporto, música, cinema e natureza.",
+  "abstract": "Engenheiro de Software Sénior altamente qualificado com especialização em React, JavaScript e tecnologias web modernas. Mais de 9 anos de experiência no desenvolvimento de sistemas críticos para setores bancário, retalho e operações científicas. Capacidade comprovada para projetar e implementar soluções de software eficientes e escaláveis, liderando equipas multidisciplinares.",
   "education": "Formação Académica",
   "experience": "Experiência Profissional",
   "master_title": "Mestrado, Engenharia Informática",
@@ -28,19 +28,46 @@
   "bachelor_description": "Adquiridos conhecimentos que asseguram uma formação de base sólida em áreas estruturantes, tais como a Matemática, a Física e a Programação, para além de áreas específicas da Engenharia Informática.\nValorizadas competências e atitudes pessoais necessárias ao exercício da profissão, nomeadamente: espírito científico e criativo, sentido crítico e responsabilidade, capacidade de aprender com autonomia, de interagir e trabalhar em grupos e em equipas interdisciplinares, e a capacidade de se auto-adaptar, ter habilidades de comunicação e auto-exigência.",
   "intern_title": "Estagiário",
   "intern_institute": "iClio",
-  "intern_description": "Recolha, análise e especificação dos requisitos funcionais, bem como desenho, implementação e integração de uma aplicação de geração de árvores genealógicas.",
-  "junior_title": "Engenheiro de Software Júnior",
-  "junior_institute": "China Systems",
-  "junior_description": "Desenvolvimento e otimização do Eximbills Enterprise, sistema integrado que automatiza e audita todo o ciclo de trade finance, abertura de contas e transações de pagamentos, em tempo real e em concordância com as normas SWIFT, UCP e ISO20022.\nAdquiridas competências de análise, negociação, resolução de conflitos e tomada de decisões em curtos períodos de tempo, inerentes à relação direta com os clientes.\nDesempenhadas também funções de líder técnico: atribuição de tarefas, formação, gestão de expectativas, planeamento.",
+  "intern_description": "Estágio com foco em desenvolver um software para geração de àrvores genealógicas.",
+  "intern_achievements": [
+    "Recolha, análise e especificação dos requisitos funcionais da aplicação de geração de árvores genealógicas",
+    "Desenho e implementação da arquitectura da aplicação",
+    "Integração da aplicação com os sistemas existentes"
+  ],
+  "intern_technologies": ["JavaScript", "HTML", "CSS", "Git"],
   "sfw_eng_title": "Engenheiro de Software",
   "sfw_eng_institute": "China Systems",
-  "sfw_eng_description": "Desenvolvimento e otimização do Eximbills Enterprise, sistema integrado que automatiza e audita todo o ciclo de trade finance, abertura de contas e transações de pagamentos, em tempo real e em concordância com as normas SWIFT, UCP e ISO20022.\nAdquiridas competências de análise, negociação, resolução de conflitos e tomada de decisões em curtos períodos de tempo, inerentes à relação direta com os clientes.\nDesempenhadas também funções de líder técnico: atribuição de tarefas, formação, gestão de expectativas, planeamento.",
-  "sr_sfw_eng_title": "Engenheiro de Software Sénior",
-  "sr_sfw_eng_institute": "China Systems",
-  "sr_sfw_eng_description": "Desenvolvimento e otimização do Eximbills Enterprise, sistema integrado que automatiza e audita todo o ciclo de trade finance, abertura de contas e transações de pagamentos, em tempo real e em concordância com as normas SWIFT, UCP e ISO20022.\nAdquiridas competências de análise, negociação, resolução de conflitos e tomada de decisões em curtos períodos de tempo, inerentes à relação direta com os clientes.\nDesempenhadas também funções de líder técnico: atribuição de tarefas, formação, gestão de expectativas, planeamento.",
+  "sfw_eng_description": "Trabalho desenvolvido no software Eximbills Enterprise, sistema integrado que automatiza e audita todo o ciclo de trade finance.",
+  "sfw_eng_achievements": [
+    "Desenvolvimento e otimização do Eximbills Enterprise, sistema integrado que automatiza e audita todo o ciclo de trade finance",
+    "Custos reduzidos de processamento de transações de clientes, através de automação e auditoria em tempo real",
+    "Assumidas funções de liderança, incluindo a atribuição de tarefas, formação e gestão de expectativas."
+  ],
+  "sfw_eng_technologies": ["React", "JavaScript", "HTML", "CSS", "XML", "Git"],
   "sr_eng_title": "Engenheiro Sénior",
   "sr_eng_institute": "Critical Software",
-  "sr_eng_description": "Serviços de consultoria na área da Engenharia de Software, presencialmente nos escritórios dos clientes, contribuindo para o desenvolvimento de capacidades de análise, negociação, resolução de conflitos e tomada de decisões em curtos períodos de tempo.",
+  "sr_eng_description": "Desenvolvimento de software para projetos de investigação internacional e moda de luxo.",
+  "sr_eng_achievements": [
+    "Desenhados e desenvolvidos interfaces de software para gestão de dados e operações num projeto internacional de investigação de grande escala",
+    "Criação e manutenção de módulos críticos para uma plataforma online do segmento de moda de luxo",
+    "Realizadas análise de requisitos, planeamento e priorização de tarefas, além de mentoria de membros da equipa"
+  ],
+  "sr_eng_technologies": [
+    "TypeScript",
+    "React",
+    "NestJS",
+    "Next.js",
+    "MobX",
+    "Zod",
+    "Material UI",
+    "Plotly",
+    "Jest",
+    "Cypress",
+    "Tailwind CSS",
+    "Git",
+    "ESLint",
+    "Prettier"
+  ],
   "actual_date": "Presente",
   "event_link": "Clique para abrir a página de {{institute}}",
   "contact_description": "Vamos conectar-nos e discutir oportunidades",
@@ -52,5 +79,7 @@
   "agile_methodologies": "Metodologias Ágeis",
   "linux_environments": "Ambientes Linux",
   "problem_solving": "Resolução de Problemas",
-  "leadership_mentoring": "Liderança e Mentoria"
+  "leadership_mentoring": "Liderança e Mentoria",
+  "key_achievements": "Principais Conquistas",
+  "technologies": "Tecnologias"
 }

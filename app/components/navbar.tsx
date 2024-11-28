@@ -12,11 +12,13 @@ import { NavLink } from "./navlink";
 import { Transition } from "./transition";
 import { useSidebar } from "./hooks/use-sidebar";
 import useScrollbarSize from "~/utils/scrollbar-size";
+import { useLang } from "~/utils/lang";
 
 export const MENU_LIST = ["about", "skills", "projects", "contact"];
 
 export function Navbar() {
   const { t } = useTranslation();
+  const lang = useLang();
   const { isSidebarOpen, toggleSidebar } = useSidebar();
   const { width } = useScrollbarSize();
 
@@ -27,7 +29,7 @@ export function Navbar() {
       className={clsx(
         "fixed w-full z-30 2xl:px-48 xl:px-36 py-4 flex justify-between items-center bg-slate-100 dark:bg-slate-900 border-b border-b-gray-200 dark:border-b-gray-800",
         { "md:px-16 px-8": !isSidebarOpen || !width },
-        { [styles]: isSidebarOpen && width }
+        { [styles]: isSidebarOpen && width },
       )}
     >
       <Logo onClick={() => toggleSidebar(false)} />
@@ -37,11 +39,16 @@ export function Navbar() {
             <Transition label={entry} transitionMobile />
           </NavLink>
         ))}
-        <Button
-          startIcon={<DownloadIcon />}
-          label="CV"
-          title={t("click_download_cv")}
-        />
+        <a
+          href={`/Paulo_Costa_Silva_CV_${lang.toUpperCase()}.pdf`}
+          download={`Paulo_Costa_Silva_CV_${lang.toUpperCase()}.pdf`}
+        >
+          <Button
+            startIcon={<DownloadIcon />}
+            label="CV"
+            title={t("click_download_cv")}
+          />
+        </a>
         <div className="flex gap-2">
           <DarkModeToggle />
           <LanguageToggle />

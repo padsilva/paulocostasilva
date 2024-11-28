@@ -7,22 +7,10 @@ const EXPERIENCE: TimelineEvent[] = [
     startDate: new Date("2022-04-01"),
   },
   {
-    name: "sr_sfw_eng",
-    link: "https://www.chinasystems.com/",
-    startDate: new Date("2019-03-01"),
-    endDate: new Date("2022-04-01"),
-  },
-  {
     name: "sfw_eng",
     link: "https://www.chinasystems.com/",
-    startDate: new Date("2017-03-01"),
-    endDate: new Date("2019-02-01"),
-  },
-  {
-    name: "junior",
-    link: "https://www.chinasystems.com/",
     startDate: new Date("2016-01-01"),
-    endDate: new Date("2017-02-01"),
+    endDate: new Date("2022-04-01"),
   },
   {
     name: "intern",
@@ -38,12 +26,14 @@ const EDUCATION: TimelineEvent[] = [
     link: "https://dei.uc.pt/mei/",
     startDate: new Date("2013-09-01"),
     endDate: new Date("2015-09-01"),
+    isEducation: true,
   },
   {
     name: "bachelor",
     link: "https://dei.uc.pt/lei/",
     startDate: new Date("2008-09-01"),
     endDate: new Date("2013-07-01"),
+    isEducation: true,
   },
 ];
 

@@ -17,7 +17,7 @@
   "lang": "EN",
   "repository": "repository",
   "greetings": "Hi, I'm Paulo!",
-  "abstract": "I'm a Software Engineer looking for challenges that allow the evolution of my career in this area, to which I have devoted myself with enthusiasm over the years.\nI want to show my full potential and, at the same time, value my work with a focus on competent and effective performance.\nBeyond my academic background, there are other areas that I'm interested in, such as: sports, music, cinema and nature.",
+  "abstract": "Highly skilled Senior Software Engineer with expertise in React, JavaScript, and modern web technologies. Over 9 years of experience in developing critical systems for banking, retail, and scientific operations. Proven ability to design and implement efficient, scalable software solutions while leading multidisciplinary teams.",
   "education": "Academic Education",
   "experience": "Professional Experience",
   "master_title": "Master of Science, Informatics Engineering",
@@ -28,19 +28,46 @@
   "bachelor_description": "Knowledge gained that ensures a solid foundation in structural areas, such as Mathematics, Physics and Programming, besides specific areas of Informatics Engineering.\nValued skills and personal attitudes necessary to practice the profession, including scientific spirit and creativity, critical sense and responsibility, the ability to learn autonomously, to interact and work in groups and in interdisciplinary teams, and the ability to self-adapt, have communication skills and self-demand.",
   "intern_title": "Intern",
   "intern_institute": "iClio",
-  "intern_description": "Collecting, analyzing, and specifying the functional requirements, as well as design, implementation, and integration of an application for generating family trees.",
-  "junior_title": "Junior Software Engineer",
-  "junior_institute": "China Systems",
-  "junior_description": "Development and improvement of Eximbills Enterprise, integrated system that automates and audits the complete cycle of trade finance, open account and payment transactions, in real time and in accordance with SWIFT, UCP and ISO20022 standards.\nReinforced skills in analysis, negotiation, conflict resolution and decision-making in short periods of time, inherent to the direct relationship with customers.\nAlso performed technical leader functions: assignment of tasks, training, expectations management, planning.",
+  "intern_description": "Software development internship focusing on family tree generation application.",
+  "intern_achievements": [
+    "Collected, analyzed, and specified functional requirements for family tree generation application",
+    "Designed and implemented the application architecture",
+    "Integrated the application with existing systems"
+  ],
+  "intern_technologies": ["JavaScript", "HTML", "CSS", "Git"],
   "sfw_eng_title": "Software Engineer",
   "sfw_eng_institute": "China Systems",
-  "sfw_eng_description": "Development and improvement of Eximbills Enterprise, integrated system that automates and audits the complete cycle of trade finance, open account and payment transactions, in real time and in accordance with SWIFT, UCP and ISO20022 standards.\nReinforced skills in analysis, negotiation, conflict resolution and decision-making in short periods of time, inherent to the direct relationship with customers.\nAlso performed technical leader functions: assignment of tasks, training, expectations management, planning.",
-  "sr_sfw_eng_title": "Senior Software Engineer",
-  "sr_sfw_eng_institute": "China Systems",
-  "sr_sfw_eng_description": "Development and improvement of Eximbills Enterprise, integrated system that automates and audits the complete cycle of trade finance, open account and payment transactions, in real time and in accordance with SWIFT, UCP and ISO20022 standards.\nReinforced skills in analysis, negotiation, conflict resolution and decision-making in short periods of time, inherent to the direct relationship with customers.\nAlso performed technical leader functions: assignment of tasks, training, expectations management, planning.",
+  "sfw_eng_description": "Worked on Eximbills Enterprise platform for trade finance automation.",
+  "sfw_eng_achievements": [
+    "Improved and developed Eximbills Enterprise, an integrated system automating the trade finance lifecycle",
+    "Reduced client transaction processing costs through real-time automation and auditing",
+    "Took on leadership roles, including task assignment, training, and expectation management"
+  ],
+  "sfw_eng_technologies": ["React", "JavaScript", "HTML", "CSS", "XML", "Git"],
   "sr_eng_title": "Senior Engineer",
   "sr_eng_institute": "Critical Software",
-  "sr_eng_description": "Software Engineering consulting services, at the customer offices, contributing to the development of skills of analysis, negotiation, conflict resolution and decision-making in short periods of time.",
+  "sr_eng_description": "Focusing on software development for international research and luxury fashion projects.",
+  "sr_eng_achievements": [
+    "Designed and developed software interfaces for managing data and operations in a large-scale international research and technology project",
+    "Created and maintained critical modules for an online platform in the luxury fashion segment",
+    "Conducted requirements analysis, planning, and task prioritization while mentoring team members"
+  ],
+  "sr_eng_technologies": [
+    "TypeScript",
+    "React",
+    "NestJS",
+    "Next.js",
+    "MobX",
+    "Zod",
+    "Material UI",
+    "Plotly",
+    "Jest",
+    "Cypress",
+    "Tailwind CSS",
+    "Git",
+    "ESLint",
+    "Prettier"
+  ],
   "actual_date": "Present",
   "event_link": "Click to open {{institute}} webpage",
   "contact_description": "Let's connect and discuss opportunities",
@@ -52,5 +79,7 @@
   "agile_methodologies": "Agile Methodologies",
   "linux_environments": "Linux Environments",
   "problem_solving": "Problem-solving",
-  "leadership_mentoring": "Leadership and Mentoring"
+  "leadership_mentoring": "Leadership and Mentoring",
+  "key_achievements": "Key Achievements",
+  "technologies": "Technologies"
 }

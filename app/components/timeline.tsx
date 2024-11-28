@@ -10,6 +10,7 @@ export type TimelineEvent = {
   name: string;
   startDate: Date;
   endDate?: Date;
+  isEducation?: boolean;
 };
 
 type TimelineProps = {
@@ -32,11 +33,33 @@ export function Timeline({ events, section }: TimelineProps) {
     <div className="flex flex-col">
       <Transition className="capitalize mb-12" label={t(section)} size="h2" />
 
-      <div className="flex flex-col">
-        {events.map(({ name, link, startDate, endDate }) => (
-          <div key={name}>
-            <div className="flex items-center gap-3">
-              <div className="lg:flex lg:justify-end lg:w-[120px] hidden">
+      {events.map(({ name, link, startDate, endDate, isEducation }) => (
+        <div className="flex flex-col" key={name}>
+          <div className="flex items-center gap-3">
+            <div className="lg:flex lg:justify-end lg:w-[120px] hidden">
+              <Transition
+                label={`${formatDate(startDate, lang)} - ${
+                  endDate ? formatDate(endDate, lang) : t("actual_date")
+                }`}
+                size="body3"
+                variant="secondary"
+              />
+            </div>
+            <div className="h-[9px] w-[9px] rounded-full bg-gray-500 dark:bg-slate-400" />
+            <div className="lg:flex hidden">
+              <Transition label={t(`${name}_title`)} size="subtitle" />
+            </div>
+            <div className="lg:hidden flex justify-end">
+              <Transition
+                label={t(`${name}_title`)}
+                size="subtitle"
+                className="font-semibold"
+              />
+            </div>
+          </div>
+          <div className="border-l border-gray-500 dark:border-slate-400 lg:ml-[136px] ml-[4px]">
+            <div className="ml-[17px] pb-12 flex flex-col gap-2">
+              <div className="lg:hidden flex">
                 <Transition
                   label={`${formatDate(startDate, lang)} - ${
                     endDate ? formatDate(endDate, lang) : t("actual_date")
@@ -45,48 +68,71 @@ export function Timeline({ events, section }: TimelineProps) {
                   variant="secondary"
                 />
               </div>
-              <div className="h-[9px] w-[9px] rounded-full bg-gray-500 dark:bg-slate-400" />
-              <div className="lg:flex hidden">
-                <Transition label={t(`${name}_title`)} size="subtitle" />
-              </div>
-              <div className="lg:hidden flex justify-end">
-                <Transition
-                  label={t(`${name}_title`)}
-                  size="subtitle"
-                  className="font-semibold"
-                />
-              </div>
-            </div>
-            <div className="border-l border-gray-500 dark:border-slate-400 lg:ml-[136px] ml-[4px]">
-              <div className="ml-[17px] pb-5 flex flex-col gap-2">
-                <div className="lg:hidden flex">
-                  <Transition
-                    label={`${formatDate(startDate, lang)} - ${
-                      endDate ? formatDate(endDate, lang) : t("actual_date")
-                    }`}
-                    size="body3"
-                    variant="secondary"
-                  />
+              <Link
+                className="underline"
+                target="_blank"
+                title={t("event_link", {
+                  institute: t(`${name}_institute`),
+                })}
+                to={link}
+              >
+                <Transition label={t(`${name}_institute`)} size="body3" />
+              </Link>
+              <Transition
+                className="text-justify whitespace-pre-line mt-4"
+                label={t(`${name}_description`)}
+                variant="secondary"
+              />
+              {!isEducation && (
+                <div className="space-y-4 mt-4">
+                  <div>
+                    <Transition
+                      className="mb-1"
+                      label={t("key_achievements")}
+                    />
+                    <Transition className="list-disc pl-5 space-y-1">
+                      {(
+                        Array.from(
+                          t(`${name}_achievements`, {
+                            returnObjects: true,
+                          }),
+                        ) as string[]
+                      ).map((achievement, i) => (
+                        <li
+                          key={i}
+                          className="text-gray-500 dark:text-slate-400"
+                        >
+                          {achievement}
+                        </li>
+                      ))}
+                    </Transition>
+                  </div>
+
+                  <div>
+                    <Transition className="mb-1" label={t("technologies")} />
+                    <div className="flex flex-wrap gap-2">
+                      {(
+                        Array.from(
+                          t(`${name}_technologies`, {
+                            returnObjects: true,
+                          }),
+                        ) as string[]
+                      ).map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <Link
-                  className="underline"
-                  target="_blank"
-                  title={t("event_link", {
-                    institute: t(`${name}_institute`),
-                  })}
-                  to={link}
-                >
-                  <Transition label={t(`${name}_institute`)} size="body3" />
-                </Link>
-                <Transition
-                  label={t(`${name}_description`)}
-                  variant="secondary"
-                />
-              </div>
+              )}
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }
