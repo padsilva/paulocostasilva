@@ -11,7 +11,6 @@ import { MENU_LIST } from "./navbar";
 import { NavLink } from "./navlink";
 import { Transition } from "./transition";
 import { useSidebar } from "./hooks/use-sidebar";
-
 import useScrollbarSize from "~/utils/scrollbar-size";
 
 export function Sidebar() {
@@ -55,7 +54,10 @@ export function Sidebar() {
       </div>
 
       <div className="container mx-auto py-6 md:px-48 sm:px-24 px-12 flex flex-col gap-4">
-        <a href="/CV_PauloSilva_EN.pdf" download="CV_PauloSilva_EN.pdf">
+        <a
+          href="/CV_PauloCostaSilva_EN.pdf"
+          download="CV_PauloCostaSilva_EN.pdf"
+        >
           <Button
             label={t("download_cv")}
             startIcon={<DownloadIcon />}

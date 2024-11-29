@@ -12,13 +12,11 @@ import { NavLink } from "./navlink";
 import { Transition } from "./transition";
 import { useSidebar } from "./hooks/use-sidebar";
 import useScrollbarSize from "~/utils/scrollbar-size";
-import { useLang } from "~/utils/lang";
 
-export const MENU_LIST = ["about", "skills", "projects", "contact"];
+export const MENU_LIST = ["about", "skills", "projects", "contacts"];
 
 export function Navbar() {
   const { t } = useTranslation();
-  const lang = useLang();
   const { isSidebarOpen, toggleSidebar } = useSidebar();
   const { width } = useScrollbarSize();
 
@@ -40,8 +38,8 @@ export function Navbar() {
           </NavLink>
         ))}
         <a
-          href={`/Paulo_Costa_Silva_CV_${lang.toUpperCase()}.pdf`}
-          download={`Paulo_Costa_Silva_CV_${lang.toUpperCase()}.pdf`}
+          href={`/CV_PauloCostaSilva_EN.pdf`}
+          download={`CV_PauloCostaSilva_EN.pdf`}
         >
           <Button
             startIcon={<DownloadIcon />}

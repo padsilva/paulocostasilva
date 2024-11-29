@@ -18,11 +18,11 @@ const skillCategories = [
     ],
   },
   {
-    title: "tools_platforms",
+    title: "development_tools",
     skills: ["Git", "JIRA", "Confluence"],
   },
   {
-    title: "other_competencies",
+    title: "methodologies_competencies",
     skills: [
       "agile_methodologies",
       "linux_environments",

@@ -25,7 +25,7 @@ const contactMethods = [
   },
 ];
 
-export function Contact() {
+export function Contacts() {
   const { t } = useTranslation();
 
   return (
@@ -34,10 +34,10 @@ export function Contact() {
         <div className="mb-12">
           <Transition
             className="capitalize mb-4"
-            label={t("contact")}
+            label={t("contacts")}
             size="h2"
           />
-          <Transition label={t("contact_description")} variant="secondary" />
+          <Transition label={t("contacts_description")} variant="secondary" />
         </div>
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-center mb-12">
