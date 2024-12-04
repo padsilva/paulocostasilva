@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import { Transition } from "../transition";
+import { Transition } from "~/components/transition";
 
 const skillCategories = [
   {

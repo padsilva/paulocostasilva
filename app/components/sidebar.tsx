@@ -10,7 +10,8 @@ import { LanguageToggle } from "./toggles/language";
 import { MENU_LIST } from "./navbar";
 import { NavLink } from "./navlink";
 import { Transition } from "./transition";
-import { useSidebar } from "./hooks/use-sidebar";
+
+import { useSidebar } from "~/hooks/use-sidebar";
 import useScrollbarSize from "~/utils/scrollbar-size";
 
 export function Sidebar() {

@@ -3,10 +3,10 @@ import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
 import { useRequestInfo } from "~/utils/request-info";
-import { MoonIcon, SunIcon } from "../icons";
+import { MoonIcon, SunIcon } from "~/components/icons";
 import { THEME_FETCHER_KEY, useOptimisticThemeMode } from "~/utils/theme";
-import { IconButton } from "../icon-button";
-import { Button } from "../button";
+import { IconButton } from "~/components/icon-button";
+import { Button } from "~/components/button";
 import type { Theme } from "~/utils/theme.server";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
@@ -20,7 +20,7 @@ function Icons({ mode }: { mode: Theme }) {
       <span
         className={clsx(
           iconSpanClassName,
-          mode === "dark" ? "rotate-0" : "rotate-90"
+          mode === "dark" ? "rotate-0" : "rotate-90",
         )}
         style={iconTransformOrigin}
       >
@@ -29,7 +29,7 @@ function Icons({ mode }: { mode: Theme }) {
       <span
         className={clsx(
           iconSpanClassName,
-          mode === "light" ? "rotate-0" : "-rotate-90"
+          mode === "light" ? "rotate-0" : "-rotate-90",
         )}
         style={iconTransformOrigin}
       >

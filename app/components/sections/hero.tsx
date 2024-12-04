@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import { Avatar } from "../avatar";
-import { Transition } from "../transition";
+import { Avatar } from "~/components/avatar";
+import { Transition } from "~/components/transition";
 
 export function Hero() {
   const { t } = useTranslation();

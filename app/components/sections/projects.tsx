@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import { Transition } from "../transition";
-import { Construction } from "../icons";
+import { Transition } from "~/components/transition";
+import { Construction } from "~/components/icons";
 
 export function Projects() {
   const { t } = useTranslation();

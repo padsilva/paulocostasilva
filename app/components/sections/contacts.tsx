@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-
-import { Transition } from "../transition";
-import { GitHubIcon, LinkedIn, Mail } from "../icons";
 import { Link } from "@remix-run/react";
+
+import { Transition } from "~/components/transition";
+import { GitHubIcon, LinkedIn, Mail } from "~/components/icons";
 
 const contactMethods = [
   {

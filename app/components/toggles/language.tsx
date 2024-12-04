@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 
 import { useRequestInfo } from "~/utils/request-info";
 import { LANG_FETCHER_KEY, useOptimisticLang } from "~/utils/lang";
-import { IconButton } from "../icon-button";
-import { Button } from "../button";
-import { LanguageIcon } from "../icons";
-import { Transition } from "../transition";
+import { IconButton } from "~/components/icon-button";
+import { Button } from "~/components/button";
+import { LanguageIcon } from "~/components/icons";
+import { Transition } from "~/components/transition";
 
 export function LanguageToggle() {
   const { t } = useTranslation();

@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { CSSTransition } from "react-transition-group";
 
 import { Typography, type TypographyProps } from "./typography";
-import { useSidebar } from "./hooks/use-sidebar";
 
+import { useSidebar } from "~/hooks/use-sidebar";
 import { useRequestInfo } from "~/utils/request-info";
 
 export function Transition({

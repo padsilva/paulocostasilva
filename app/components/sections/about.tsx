@@ -1,4 +1,4 @@
-import { type TimelineEvent, Timeline } from "../timeline";
+import { type TimelineEvent, Timeline } from "~/components/timeline";
 
 const EXPERIENCE: TimelineEvent[] = [
   {

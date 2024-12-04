@@ -10,7 +10,8 @@ import { LanguageToggle } from "./toggles/language";
 import { Logo } from "./logo";
 import { NavLink } from "./navlink";
 import { Transition } from "./transition";
-import { useSidebar } from "./hooks/use-sidebar";
+
+import { useSidebar } from "~/hooks/use-sidebar";
 import useScrollbarSize from "~/utils/scrollbar-size";
 
 export const MENU_LIST = ["about", "skills", "projects", "contacts"];

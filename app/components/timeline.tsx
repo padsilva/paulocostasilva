@@ -2,6 +2,7 @@ import { Link } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
 import { Transition } from "./transition";
+
 import { useLang } from "~/utils/lang";
 import { type Lang } from "~/utils/lang.server";
 

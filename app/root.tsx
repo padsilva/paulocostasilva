@@ -21,7 +21,7 @@ import stylesheet from "~/tailwind.css";
 import { Footer } from "./components/footer";
 import { Navbar } from "./components/navbar";
 import { Sidebar } from "./components/sidebar";
-import { SidebarProvider } from "./components/hooks/use-sidebar";
+import { SidebarProvider } from "./hooks/use-sidebar";
 
 import { getLang } from "./utils/lang.server";
 import { getTheme } from "./utils/theme.server";
