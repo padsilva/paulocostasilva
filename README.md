@@ -1,6 +1,6 @@
 # :blond_haired_man: About me
 
-Paulo Silva's portfolio - Showcasing experience, education, skills and projects.
+Paulo Silva's page with details about his experience, education, skills and projects.
 
 ## :rocket: Getting Started
 
