@@ -31,5 +31,5 @@ export function useOptimisticLang() {
 export function useLang() {
   const requestInfo = useRequestInfo();
   const optimisticMode = useOptimisticLang();
-  return optimisticMode || requestInfo.userPrefs.lang || "en";
+  return optimisticMode ?? requestInfo.userPrefs.lang ?? "en";
 }

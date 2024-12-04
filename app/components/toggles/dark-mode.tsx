@@ -9,9 +9,13 @@ import { IconButton } from "~/components/icon-button";
 import { Button } from "~/components/button";
 import type { Theme } from "~/utils/theme.server";
 
+interface IconsProps {
+  mode: Theme;
+}
+
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
-function Icons({ mode }: { mode: Theme }) {
+const Icons: React.FC<IconsProps> = ({ mode }) => {
   const iconSpanClassName =
     "absolute inset-0 transform transition-transform duration-700";
 
@@ -37,7 +41,7 @@ function Icons({ mode }: { mode: Theme }) {
       </span>
     </>
   );
-}
+};
 
 export function DarkModeToggle() {
   const { t } = useTranslation();

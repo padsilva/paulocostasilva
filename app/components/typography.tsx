@@ -1,7 +1,7 @@
 import { forwardRef, type ElementType, type ReactNode } from "react";
 import { clsx } from "clsx";
 
-type TitleProps = {
+export type TitleProps = {
   variant?: "primary" | "secondary" | "button";
   as?: ElementType;
   className?: string;
@@ -30,7 +30,7 @@ export type TypographyProps = TitleProps & { size: keyof typeof fontSize };
 
 export const Typography = forwardRef(function Typography(
   { variant = "primary", size, as, className, ...rest }: TypographyProps,
-  ref
+  ref,
 ) {
   const isParagraph =
     size === "body1" ||

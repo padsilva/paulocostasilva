@@ -4,6 +4,7 @@ import {
   useState,
   type ReactNode,
   type FC,
+  useMemo,
 } from "react";
 
 interface SidebarContextProps {
@@ -12,20 +13,23 @@ interface SidebarContextProps {
 }
 
 const SidebarContext = createContext<SidebarContextProps | undefined>(
-  undefined
+  undefined,
 );
 
 export const SidebarProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = (isToClose?: boolean) => {
-    setSidebarOpen(isToClose ?? !isSidebarOpen);
+    setIsSidebarOpen(isToClose ?? !isSidebarOpen);
   };
 
+  const value = useMemo(
+    () => ({ isSidebarOpen, toggleSidebar }),
+    [isSidebarOpen, toggleSidebar],
+  );
+
   return (
-    <SidebarContext.Provider value={{ isSidebarOpen, toggleSidebar }}>
-      {children}
-    </SidebarContext.Provider>
+    <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>
   );
 };
 

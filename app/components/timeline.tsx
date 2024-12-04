@@ -26,7 +26,7 @@ const formatDate = (date: Date, lang: Lang) => {
   return `${month} '${year}`;
 };
 
-export function Timeline({ events, section }: TimelineProps) {
+export const Timeline = ({ events, section }: TimelineProps) => {
   const { t } = useTranslation();
   const lang = useLang();
 
@@ -91,36 +91,34 @@ export function Timeline({ events, section }: TimelineProps) {
                       className="mb-1"
                       label={t("key_achievements")}
                     />
-                    <Transition className="list-disc pl-5 space-y-1">
-                      {(
-                        Array.from(
+                    <Transition>
+                      <ul className="list-disc pl-5 space-y-1">
+                        {Array.from(
                           t(`${name}_achievements`, {
                             returnObjects: true,
-                          }),
-                        ) as string[]
-                      ).map((achievement, i) => (
-                        <li
-                          key={i}
-                          className="text-gray-500 dark:text-slate-400"
-                        >
-                          {achievement}
-                        </li>
-                      ))}
+                          }) as string[],
+                        ).map((achievement, index) => (
+                          <li
+                            key={`${name}_achievement_${index}`}
+                            className="text-gray-500 dark:text-slate-400"
+                          >
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
                     </Transition>
                   </div>
 
                   <div>
                     <Transition className="mb-1" label={t("technologies")} />
                     <div className="flex flex-wrap gap-2">
-                      {(
-                        Array.from(
-                          t(`${name}_technologies`, {
-                            returnObjects: true,
-                          }),
-                        ) as string[]
-                      ).map((tech, i) => (
+                      {Array.from(
+                        t(`${name}_technologies`, {
+                          returnObjects: true,
+                        }) as string[],
+                      ).map((tech, index) => (
                         <span
-                          key={i}
+                          key={`${name}_tech_${index}`}
                           className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
                         >
                           {tech}
@@ -136,4 +134,4 @@ export function Timeline({ events, section }: TimelineProps) {
       ))}
     </div>
   );
-}
+};

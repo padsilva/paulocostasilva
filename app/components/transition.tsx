@@ -24,7 +24,7 @@ export function Transition({
   const { isSidebarOpen } = useSidebar();
 
   const [isAnimating, setIsAnimating] = useState(true);
-  const [message, setMessage] = useState(t(label || ""));
+  const [message, setMessage] = useState(t(label ?? ""));
   const nodeRef = useRef(null);
 
   const handleAnimation = () => {

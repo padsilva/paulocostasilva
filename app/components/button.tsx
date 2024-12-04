@@ -1,18 +1,10 @@
 import type { ReactElement, ReactNode } from "react";
 import clsx from "clsx";
 
-import { Typography } from "./typography";
+import { TitleProps, Typography } from "./typography";
 import { Transition } from "./transition";
 
-export function Button({
-  children,
-  endIcon,
-  label,
-  startIcon,
-  title,
-  transition = false,
-  variant = "primary",
-}: {
+interface ButtonProps {
   children?: ReactNode | ReactNode[];
   endIcon?: ReactElement;
   label?: string;
@@ -20,29 +12,81 @@ export function Button({
   title?: string;
   transition?: boolean;
   variant?: "primary" | "outline";
-}) {
+}
+
+const StartIcon: React.FC<
+  Pick<ButtonProps, "startIcon" | "transition"> & Pick<TitleProps, "variant">
+> = ({ startIcon, transition, variant }) =>
+  startIcon && transition ? (
+    <Transition icon={startIcon} transitionMobile variant={variant} />
+  ) : (
+    startIcon
+  );
+
+const Label: React.FC<
+  Pick<ButtonProps, "label" | "transition"> & Pick<TitleProps, "variant">
+> = ({ label, transition, variant }) => {
+  if (!label) {
+    return null;
+  }
+
+  return transition ? (
+    <Transition
+      as="span"
+      className="first-letter:capitalize"
+      label={label}
+      transitionMobile
+      variant={variant}
+    />
+  ) : (
+    <Typography
+      size="body2"
+      variant={variant}
+      as="span"
+      className="first-letter:capitalize"
+    >
+      {label}
+    </Typography>
+  );
+};
+
+const EndIcon: React.FC<
+  Pick<ButtonProps, "endIcon" | "transition"> & Pick<TitleProps, "variant">
+> = ({ endIcon, transition, variant }) =>
+  endIcon && transition ? (
+    <Transition icon={endIcon} transitionMobile variant={variant} />
+  ) : (
+    endIcon
+  );
+
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  endIcon,
+  label,
+  startIcon,
+  title,
+  transition = false,
+  variant = "primary",
+}) => {
   const isOutline = variant === "outline";
 
   return (
     <button
-      title={title || label}
+      title={title ?? label}
       type="submit"
       className={clsx(
         "flex items-center justify-center gap-2 w-full rounded-xl border-2 py-2 overflow-hidden",
         isOutline
           ? "border-slate-500 text:black hover:border-slate-900 active:border-slate-800 dark:hover:border-slate-100 dark:active:border-slate-200 dark:text-white"
-          : "lg:px-4 lg:py-1.5 lg:border-none border-transparent text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
+          : "lg:px-4 lg:py-1.5 lg:border-none border-transparent text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black",
       )}
     >
-      {startIcon && transition ? (
-        <Transition
-          icon={startIcon}
-          transitionMobile
-          variant={isOutline ? "primary" : "button"}
-        />
-      ) : (
-        startIcon
-      )}
+      <StartIcon
+        startIcon={startIcon}
+        transition={transition}
+        variant={isOutline ? "primary" : "button"}
+      />
+
       {children ? (
         <div className={`relative h-6 w-6`}>
           {transition ? (
@@ -58,35 +102,18 @@ export function Button({
           )}
         </div>
       ) : null}
-      {label ? (
-        transition ? (
-          <Transition
-            as="span"
-            className="first-letter:capitalize"
-            label={label}
-            transitionMobile
-            variant={isOutline ? "primary" : "button"}
-          />
-        ) : (
-          <Typography
-            size="body2"
-            variant={isOutline ? "primary" : "button"}
-            as="span"
-            className="first-letter:capitalize"
-          >
-            {label}
-          </Typography>
-        )
-      ) : null}
-      {endIcon && transition ? (
-        <Transition
-          icon={endIcon}
-          transitionMobile
-          variant={isOutline ? "primary" : "button"}
-        />
-      ) : (
-        endIcon
-      )}
+
+      <Label
+        label={label}
+        transition={transition}
+        variant={isOutline ? "primary" : "button"}
+      />
+
+      <EndIcon
+        endIcon={endIcon}
+        transition={transition}
+        variant={isOutline ? "primary" : "button"}
+      />
     </button>
   );
-}
+};

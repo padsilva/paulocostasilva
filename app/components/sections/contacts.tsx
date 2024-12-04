@@ -41,9 +41,9 @@ export function Contacts() {
         </div>
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-center mb-12">
-          {contactMethods.map((method, index) => (
+          {contactMethods.map((method) => (
             <Link
-              key={index}
+              key={method.title}
               to={method.value}
               target="_blank"
               className="bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 text-white dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black w-40 p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 group"

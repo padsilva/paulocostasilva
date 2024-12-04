@@ -1,11 +1,12 @@
-export function Avatar({
-  name,
-  size = "small",
-}: {
+interface AvatarProps {
   name: string;
   size?: "small" | "medium" | "large";
-}) {
-  const pxs = size === "large" ? 480 : size === "medium" ? 240 : 96;
+}
+
+export const Avatar: React.FC<AvatarProps> = ({ name, size = "small" }) => {
+  const sizeToPxs = { large: 480, medium: 240, small: 96 };
+  const pxs = sizeToPxs[size];
+
   return (
     <img
       src={`/assets/${name}.jpg`}
@@ -15,4 +16,4 @@ export function Avatar({
       width={pxs}
     />
   );
-}
+};

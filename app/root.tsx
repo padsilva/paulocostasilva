@@ -1,7 +1,7 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   json,
-  type DataFunctionArgs,
+  type LoaderFunctionArgs,
   type LinksFunction,
   type MetaFunction,
 } from "@remix-run/node";
@@ -33,7 +33,7 @@ export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
   const data = {
     requestInfo: {
       userPrefs: {
@@ -46,7 +46,7 @@ export async function loader({ request }: DataFunctionArgs) {
   return json(data);
 }
 
-export let handle = {
+export const handle = {
   // In the handle export, we can add a i18n key with namespaces our route
   // will need to load. This key can be a single string or an array of strings.
   // TIP: In most cases, you should set this to your defaultNS from your i18n config
