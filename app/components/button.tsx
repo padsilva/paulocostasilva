@@ -16,12 +16,15 @@ interface ButtonProps {
 
 const StartIcon: React.FC<
   Pick<ButtonProps, "startIcon" | "transition"> & Pick<TitleProps, "variant">
-> = ({ startIcon, transition, variant }) =>
-  startIcon && transition ? (
-    <Transition icon={startIcon} transitionMobile variant={variant} />
-  ) : (
-    startIcon
-  );
+> = ({ startIcon, transition, variant }) => (
+  <div className="group-hover:scale-105">
+    {startIcon && transition ? (
+      <Transition icon={startIcon} transitionMobile variant={variant} />
+    ) : (
+      startIcon
+    )}
+  </div>
+);
 
 const Label: React.FC<
   Pick<ButtonProps, "label" | "transition"> & Pick<TitleProps, "variant">
@@ -33,7 +36,7 @@ const Label: React.FC<
   return transition ? (
     <Transition
       as="span"
-      className="first-letter:capitalize"
+      className="first-letter:capitalize group-hover:scale-105"
       label={label}
       transitionMobile
       variant={variant}
@@ -43,7 +46,7 @@ const Label: React.FC<
       size="body2"
       variant={variant}
       as="span"
-      className="first-letter:capitalize"
+      className="first-letter:capitalize group-hover:scale-105"
     >
       {label}
     </Typography>
@@ -52,12 +55,15 @@ const Label: React.FC<
 
 const EndIcon: React.FC<
   Pick<ButtonProps, "endIcon" | "transition"> & Pick<TitleProps, "variant">
-> = ({ endIcon, transition, variant }) =>
-  endIcon && transition ? (
-    <Transition icon={endIcon} transitionMobile variant={variant} />
-  ) : (
-    endIcon
-  );
+> = ({ endIcon, transition, variant }) => (
+  <div className="group-hover:scale-105">
+    {endIcon && transition ? (
+      <Transition icon={endIcon} transitionMobile variant={variant} />
+    ) : (
+      endIcon
+    )}
+  </div>
+);
 
 export const Button: React.FC<ButtonProps> = ({
   children,
@@ -75,7 +81,7 @@ export const Button: React.FC<ButtonProps> = ({
       title={title ?? label}
       type="submit"
       className={clsx(
-        "flex items-center justify-center gap-2 w-full rounded-xl border-2 py-2 overflow-hidden",
+        "flex items-center justify-center gap-2 w-full rounded-xl border-2 py-2 overflow-hidden transform transition-all duration-300 hover:scale-105 group",
         isOutline
           ? "border-slate-500 text:black hover:border-slate-900 active:border-slate-800 dark:hover:border-slate-100 dark:active:border-slate-200 dark:text-white"
           : "lg:px-4 lg:py-1.5 lg:border-none border-transparent text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black",
@@ -88,7 +94,7 @@ export const Button: React.FC<ButtonProps> = ({
       />
 
       {children ? (
-        <div className={`relative h-6 w-6`}>
+        <div className="relative h-6 w-6">
           {transition ? (
             <Transition
               icon={startIcon}

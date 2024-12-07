@@ -39,8 +39,8 @@ export function Navbar() {
           </NavLink>
         ))}
         <a
-          href={`/CV_PauloCostaSilva_EN.pdf`}
-          download={`CV_PauloCostaSilva_EN.pdf`}
+          href="/CV_PauloCostaSilva_EN.pdf"
+          download="CV_PauloCostaSilva_EN.pdf"
         >
           <Button
             startIcon={<DownloadIcon />}
@@ -56,7 +56,7 @@ export function Navbar() {
             to="https://github.com/padsilva/paulocostasilva"
             target="_blank"
           >
-            <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200">
+            <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200 transform transition-all duration-300 hover:scale-105 group">
               <GitHubIcon />
             </div>
           </Link>

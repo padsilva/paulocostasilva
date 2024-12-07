@@ -3,6 +3,7 @@ import { Link } from "@remix-run/react";
 
 import { Transition } from "~/components/transition";
 import { GitHubIcon, LinkedIn, Mail } from "~/components/icons";
+import { Button } from "~/components/button";
 
 const contactMethods = [
   {
@@ -42,20 +43,8 @@ export function Contacts() {
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-center mb-12">
           {contactMethods.map((method) => (
-            <Link
-              key={method.title}
-              to={method.value}
-              target="_blank"
-              className="bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 text-white dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black w-40 p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 group"
-            >
-              <div className="flex items-center justify-center gap-2">
-                <div className="bg-inherit text-white dark:text-black group-hover:scale-110 transition-transform duration-300">
-                  {method.icon()}
-                </div>
-                <Transition className="font-semibold" size="body2">
-                  {method.title}
-                </Transition>
-              </div>
+            <Link key={method.title} to={method.value} target="_blank">
+              <Button startIcon={method.icon()} label={method.title} />
             </Link>
           ))}
         </div>
