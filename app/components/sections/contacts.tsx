@@ -67,7 +67,7 @@ export function Contacts() {
   const { t } = useTranslation();
 
   return (
-    <section className="w-full" id="contact">
+    <section className="w-full" id="contacts">
       <div className="flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
