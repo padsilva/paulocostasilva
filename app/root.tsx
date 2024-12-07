@@ -21,8 +21,8 @@ import stylesheet from "~/tailwind.css";
 import { Footer } from "./components/footer";
 import { Navbar } from "./components/navbar";
 import { Sidebar } from "./components/sidebar";
+import { ScrollTop } from "./components/scroll-top";
 import { SidebarProvider } from "./hooks/use-sidebar";
-
 import { getLang } from "./utils/lang.server";
 import { getTheme } from "./utils/theme.server";
 import { useLang } from "./utils/lang";
@@ -93,6 +93,8 @@ export default function App() {
           <Outlet />
 
           <Footer />
+
+          <ScrollTop />
 
           <ScrollRestoration />
           <Scripts />
