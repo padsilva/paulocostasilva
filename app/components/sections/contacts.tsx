@@ -9,19 +9,19 @@ const contactMethods = [
     title: "Email",
     value: "mailto:pauloalexandreduartesilva@gmail.com",
     icon: Mail,
-    description: "Drop me a line anytime!",
+    description: "email_description",
   },
   {
     title: "GitHub",
     value: "https://github.com/padsilva",
     icon: GitHubIcon,
-    description: "Check out my code",
+    description: "github_description",
   },
   {
     title: "LinkedIn",
     value: "https://www.linkedin.com/in/paulocostasilva/",
     icon: LinkedIn,
-    description: "Let's connect",
+    description: "linkedin_description",
   },
 ];
 
@@ -32,6 +32,7 @@ const ContactCard = ({
   method: (typeof contactMethods)[0];
   index: number;
 }) => {
+  const { t } = useTranslation();
   const Icon = method.icon;
 
   return (
@@ -55,7 +56,7 @@ const ContactCard = ({
             {method.title}
           </Typography>
           <Typography className="text-gray-600 dark:text-gray-300" size="body3">
-            {method.description}
+            {t(method.description)}
           </Typography>
         </div>
       </div>

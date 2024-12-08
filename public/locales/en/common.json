@@ -77,10 +77,12 @@
   "development_tools": "Development Tools",
   "methodologies_competencies": "Methodologies & Competencies",
   "agile_methodologies": "Agile Methodologies",
-  "linux_environments": "Linux Environments",
-  "problem_solving": "Problem-solving",
-  "leadership_mentoring": "Leadership and Mentoring",
+  "problem_solving": "Problem Solving",
+  "leadership": "Leadership",
   "key_achievements": "Key Achievements",
   "technologies": "Technologies",
-  "all": "All"
+  "all": "All",
+  "email_description": "Drop me a line",
+  "github_description": "Check out my code",
+  "linkedin_description": "Let's connect"
 }

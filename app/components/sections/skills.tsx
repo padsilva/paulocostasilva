@@ -101,23 +101,24 @@ const skills: Skill[] = [
 
   // Methodologies & Competencies
   {
-    name: "Agile Methodologies",
+    name: "agile_methodologies",
     category: "methodologies_competencies",
     logo: RefreshCcw,
   },
   {
-    name: "Problem Solving",
+    name: "problem_solving",
     category: "methodologies_competencies",
     logo: Check,
   },
   {
-    name: "Leadership",
+    name: "leadership",
     category: "methodologies_competencies",
     logo: Users,
   },
 ];
 
 const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
+  const { t } = useTranslation();
   const theme = useTheme();
   const isMethodologiesCompetencies =
     skill.category === "methodologies_competencies";
@@ -134,7 +135,9 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
       <div className="flex items-center gap-4">
         <div className="w-12 h-12 flex items-center justify-center rounded-lg p-2">
           {isMethodologiesCompetencies ? (
-            <Logo />
+            <div className="text-black dark:text-white">
+              <Logo size={24} />
+            </div>
           ) : (
             <img
               src={
@@ -146,7 +149,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
           )}
         </div>
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-          {skill.name}
+          {isMethodologiesCompetencies ? t(skill.name) : skill.name}
         </h3>
       </div>
     </motion.div>
@@ -174,7 +177,13 @@ const CategoryFilter = ({
             : "text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
         }`}
       >
-        <Typography size="body2" variant="button">
+        <Typography
+          className={
+            activeCategory === "all" ? "text-white dark:text-white" : ""
+          }
+          size="body2"
+          variant="button"
+        >
           {t("all")}
         </Typography>
       </button>
@@ -190,8 +199,14 @@ const CategoryFilter = ({
                 : "text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
             }`}
           >
-            <Icon />
-            <Typography size="body2" variant="button">
+            <Icon size={24} />
+            <Typography
+              className={
+                activeCategory === id ? "text-white dark:text-white" : ""
+              }
+              size="body2"
+              variant="button"
+            >
               {t(id)}
             </Typography>
           </button>
