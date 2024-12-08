@@ -1,69 +1,250 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
-import { Transition } from "~/components/transition";
+import {
+  Blocks,
+  Check,
+  CodeXml,
+  RefreshCcw,
+  Users,
+  Workflow,
+} from "~/components/icons";
+import { Typography } from "~/components/typography";
+import { useTheme } from "~/utils/theme";
 
-const skillCategories = [
+type Skill = {
+  name: string;
+  category: string;
+  logo: any;
+};
+
+const SKILL_CATEGORIES = [
   {
-    title: "languages_frameworks",
-    skills: [
-      "React",
-      "JavaScript",
-      "TypeScript",
-      "NestJS",
-      "Next.js",
-      "Cypress",
-      "Jest",
-      "HTML",
-      "CSS",
-    ],
+    id: "languages_frameworks",
+    icon: CodeXml,
   },
   {
-    title: "development_tools",
-    skills: ["Git", "JIRA", "Confluence"],
+    id: "development_tools",
+    icon: Blocks,
   },
   {
-    title: "methodologies_competencies",
-    skills: [
-      "agile_methodologies",
-      "linux_environments",
-      "problem_solving",
-      "leadership_mentoring",
-    ],
+    id: "methodologies_competencies",
+    icon: Workflow,
   },
 ];
 
-export const Skills = () => {
+const skills: Skill[] = [
+  // Languages & Frameworks
+  {
+    name: "React",
+    category: "languages_frameworks",
+    logo: "/assets/logos/react.svg",
+  },
+  {
+    name: "TypeScript",
+    category: "languages_frameworks",
+    logo: "/assets/logos/typescript.svg",
+  },
+  {
+    name: "JavaScript",
+    category: "languages_frameworks",
+    logo: "/assets/logos/javascript.svg",
+  },
+  {
+    name: "Next.js",
+    category: "languages_frameworks",
+    logo: "/assets/logos/nextjs.svg",
+  },
+  {
+    name: "NestJS",
+    category: "languages_frameworks",
+    logo: "/assets/logos/nestjs.svg",
+  },
+  {
+    name: "HTML",
+    category: "languages_frameworks",
+    logo: "/assets/logos/html5.svg",
+  },
+  {
+    name: "CSS",
+    category: "languages_frameworks",
+    logo: "/assets/logos/css3.svg",
+  },
+  {
+    name: "Jest",
+    category: "languages_frameworks",
+    logo: "/assets/logos/jest.svg",
+  },
+  {
+    name: "Cypress",
+    category: "languages_frameworks",
+    logo: "/assets/logos/cypress.svg",
+  },
+
+  // Development Tools
+  {
+    name: "Git",
+    category: "development_tools",
+    logo: "/assets/logos/git.svg",
+  },
+  {
+    name: "JIRA",
+    category: "development_tools",
+    logo: "/assets/logos/jira.svg",
+  },
+  {
+    name: "Confluence",
+    category: "development_tools",
+    logo: "/assets/logos/confluence.svg",
+  },
+
+  // Methodologies & Competencies
+  {
+    name: "Agile Methodologies",
+    category: "methodologies_competencies",
+    logo: RefreshCcw,
+  },
+  {
+    name: "Problem Solving",
+    category: "methodologies_competencies",
+    logo: Check,
+  },
+  {
+    name: "Leadership",
+    category: "methodologies_competencies",
+    logo: Users,
+  },
+];
+
+const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
+  const theme = useTheme();
+  const isMethodologiesCompetencies =
+    skill.category === "methodologies_competencies";
+  const isCypress = skill.name === "Cypress";
+  const Logo = skill.logo;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      className="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+    >
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg p-2">
+          {isMethodologiesCompetencies ? (
+            <Logo />
+          ) : (
+            <img
+              src={
+                isCypress ? Logo.replace("cypress", `cypress_${theme}`) : Logo
+              }
+              alt={`${skill.name} logo`}
+              className="w-full h-full object-contain"
+            />
+          )}
+        </div>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          {skill.name}
+        </h3>
+      </div>
+    </motion.div>
+  );
+};
+
+const CategoryFilter = ({
+  categories,
+  activeCategory,
+  onSelect,
+}: {
+  categories: typeof SKILL_CATEGORIES;
+  activeCategory: string;
+  onSelect: (category: string) => void;
+}) => {
   const { t } = useTranslation();
 
   return (
-    <section className="w-full" id="skills">
-      <Transition className="capitalize mb-12" label={t("skills")} size="h2" />
-
-      <div className="space-y-12">
-        {skillCategories.map((category) => (
-          <div
-            key={category.title}
-            className="border-b border-gray-200 pb-8 last:border-0"
+    <div className="flex flex-wrap gap-4 mb-8 justify-center">
+      <button
+        onClick={() => onSelect("all")}
+        className={`px-4 py-2 rounded-xl transition-all duration-300 ${
+          activeCategory === "all"
+            ? "bg-blue-600 text-white dark:bg-blue-500"
+            : "text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
+        }`}
+      >
+        <Typography size="body2" variant="button">
+          {t("all")}
+        </Typography>
+      </button>
+      {categories.map(({ id, icon }) => {
+        const Icon = icon;
+        return (
+          <button
+            key={id}
+            onClick={() => onSelect(id)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
+              activeCategory === id
+                ? "bg-blue-600 text-white dark:bg-blue-500"
+                : "text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
+            }`}
           >
-            <Transition
-              className="mb-6 font-semibold"
-              label={category.title}
-              size="body1"
-            />
-            <div className="flex flex-wrap gap-3">
-              {category.skills.map((skill) => (
-                <Transition
-                  className="px-4 py-2 rounded-xl border-2 border-slate-500 text:black hover:border-slate-900 active:border-slate-800 dark:hover:border-slate-100 dark:active:border-slate-200 dark:text-white"
-                  key={skill}
-                  label={skill}
-                  size="body3"
-                  variant="secondary"
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+            <Icon />
+            <Typography size="body2" variant="button">
+              {t(id)}
+            </Typography>
+          </button>
+        );
+      })}
+    </div>
   );
 };
+
+export function Skills() {
+  const { t } = useTranslation();
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const filteredSkills =
+    activeCategory === "all"
+      ? skills
+      : skills.filter((skill) => skill.category === activeCategory);
+
+  return (
+    <section className="w-full" id="skills">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-6xl mx-auto"
+      >
+        <div className="mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Typography className="capitalize mb-12" size="h2">
+              {t("skills")}
+            </Typography>
+          </motion.div>
+
+          {/* Category Filter */}
+          <CategoryFilter
+            categories={SKILL_CATEGORIES}
+            activeCategory={activeCategory}
+            onSelect={setActiveCategory}
+          />
+        </div>
+
+        {/* Skills Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {filteredSkills.map((skill, index) => (
+            <SkillCard key={skill.name} skill={skill} index={index} />
+          ))}
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
