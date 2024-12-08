@@ -59,7 +59,7 @@ export function DarkModeToggle() {
       <input type="hidden" name="theme" value={nextMode} />
 
       <div className="lg:hidden flex w-full">
-        <Button label={tMode} title={title} variant="outline" transition>
+        <Button label={tMode} title={title} variant="outline" isMobile>
           <Icons mode={mode} />
         </Button>
       </div>

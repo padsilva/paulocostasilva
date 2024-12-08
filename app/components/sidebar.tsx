@@ -60,10 +60,10 @@ export function Sidebar() {
           download="CV_PauloCostaSilva_EN.pdf"
         >
           <Button
+            isMobile
             label={t("download_cv")}
             startIcon={<DownloadIcon />}
             title={t("click_download_cv")}
-            transition
           />
         </a>
         <DarkModeToggle />
@@ -74,10 +74,10 @@ export function Sidebar() {
           target="_blank"
         >
           <Button
+            isMobile
             label={t("repository")}
             startIcon={<GitHubIcon size={24} />}
             title={t("github_link")}
-            transition
             variant="outline"
           />
         </Link>

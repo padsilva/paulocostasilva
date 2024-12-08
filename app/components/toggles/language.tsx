@@ -6,7 +6,7 @@ import { LANG_FETCHER_KEY, useOptimisticLang } from "~/utils/lang";
 import { IconButton } from "~/components/icon-button";
 import { Button } from "~/components/button";
 import { LanguageIcon } from "~/components/icons";
-import { Transition } from "~/components/transition";
+import { Typography } from "~/components/typography";
 
 export function LanguageToggle() {
   const { t } = useTranslation();
@@ -33,13 +33,15 @@ export function LanguageToggle() {
           startIcon={<LanguageIcon />}
           title={t("switch_lang", { tLang })}
           variant="outline"
-          transition
+          isMobile
         />
       </div>
 
       <div className="lg:flex hidden w-full">
         <IconButton title={t("switch_lang", { tLang })}>
-          <Transition as="span" label="lang" transitionMobile />
+          <Typography as="span" size="body2">
+            {t("lang")}
+          </Typography>
         </IconButton>
       </div>
     </fetcher.Form>
