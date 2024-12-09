@@ -10,6 +10,7 @@ import { LanguageToggle } from "./toggles/language";
 import { MENU_LIST } from "./navbar";
 import { NavLink } from "./navlink";
 import { Typography } from "./typography";
+
 import { useSidebar } from "~/hooks/use-sidebar";
 import useScrollbarSize from "~/utils/scrollbar-size";
 
@@ -60,15 +61,24 @@ export function Sidebar() {
   const { isSidebarOpen, toggleSidebar } = useSidebar();
 
   useEffect(() => {
-    if (isSidebarOpen && width) {
-      document.body.classList.add("overflow-y-hidden");
-      document.body.classList.add(`pr-[${width}px]`);
-      document.body.classList.remove("overflow-y-scroll");
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    const scrollbarWidth = width || 0;
+
+    if (isSidebarOpen) {
+      // Prevent scroll and compensate for scrollbar removal
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
     } else {
-      document.body.classList.remove("overflow-y-hidden");
-      document.body.classList.remove(`pr-[${width}px]`);
-      document.body.classList.add("overflow-y-scroll");
+      // Restore original styles
+      document.body.style.overflow = originalStyle;
+      document.body.style.paddingRight = "0px";
     }
+
+    // Cleanup function to restore original styles when component unmounts
+    return () => {
+      document.body.style.overflow = originalStyle;
+      document.body.style.paddingRight = "0px";
+    };
   }, [isSidebarOpen, width]);
 
   return (

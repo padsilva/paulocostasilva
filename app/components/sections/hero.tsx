@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <section className="flex flex-wrap" id="#">
-      <div className="w-full max-w-6xl mx-auto px-4">
+      <div className="w-full max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
