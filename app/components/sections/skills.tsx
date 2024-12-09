@@ -168,21 +168,20 @@ const CategoryFilter = ({
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-wrap gap-4 mb-8 justify-center">
+    <div className="flex flex-col items-stretch sm:flex-row sm:justify-center gap-4 mb-8">
       <button
         onClick={() => onSelect("all")}
-        className={`px-4 py-2 rounded-xl transition-all duration-300 ${
-          activeCategory === "all"
-            ? "bg-blue-600 text-white dark:bg-blue-500"
-            : "text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
+        className={`flex px-4 py-2 border-b-2 transition-colors duration-300 ${
+          activeCategory === "all" ? "border-blue-500" : "border-transparent"
         }`}
       >
         <Typography
           className={
-            activeCategory === "all" ? "text-white dark:text-white" : ""
+            activeCategory === "all"
+              ? "text-dark dark:text-white"
+              : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
           }
           size="body2"
-          variant="button"
         >
           {t("all")}
         </Typography>
@@ -193,19 +192,20 @@ const CategoryFilter = ({
           <button
             key={id}
             onClick={() => onSelect(id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
+            className={`flex items-center gap-2 px-4 py-2 border-b-2 transition-colors duration-300 ${
               activeCategory === id
-                ? "bg-blue-600 text-white dark:bg-blue-500"
-                : "text-white bg-slate-900 hover:bg-slate-700 active:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-300 dark:active:bg-slate-200 dark:text-black"
+                ? "border-blue-500 text-dark dark:text-white"
+                : "border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 group"
             }`}
           >
             <Icon size={24} />
             <Typography
               className={
-                activeCategory === id ? "text-white dark:text-white" : ""
+                activeCategory === id
+                  ? "text-dark dark:text-white"
+                  : "text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300"
               }
               size="body2"
-              variant="button"
             >
               {t(id)}
             </Typography>
