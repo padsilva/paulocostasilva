@@ -1,5 +1,5 @@
 import { useFetcher } from "@remix-run/react";
-import { parse } from "@conform-to/zod";
+import { parseWithZod } from "@conform-to/zod";
 import { z } from "zod";
 
 import { useRequestInfo } from "./request-info";
