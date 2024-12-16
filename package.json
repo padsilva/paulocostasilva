@@ -16,7 +16,7 @@
     "@conform-to/zod": "^1.2.2",
     "@remix-run/css-bundle": "^2.15.0",
     "@remix-run/node": "^2.2.0",
-    "@remix-run/react": "^2.3.0",
+    "@remix-run/react": "^2.15.1",
     "@remix-run/serve": "^2.15.1",
     "@types/react-transition-group": "^4.4.12",
     "clsx": "^2.1.1",
