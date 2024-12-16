@@ -9,10 +9,7 @@ export async function action({ request }: ActionFunctionArgs) {
   const submission = parseWithZod(formData, {
     schema: ThemeFormSchema,
   });
-  if (submission.intent !== "submit") {
-    return json({ status: "idle", submission } as const);
-  }
-  if (!submission.value) {
+  if (submission.status !== "success") {
     return json({ status: "error", submission } as const, { status: 400 });
   }
   const { theme } = submission.value;
