@@ -6,7 +6,7 @@ import { setTheme } from "~/utils/theme.server";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
-  const submission = parse(formData, {
+  const submission = parseWithZod(formData, {
     schema: ThemeFormSchema,
   });
   if (submission.intent !== "submit") {

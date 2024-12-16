@@ -18,7 +18,7 @@ export function useOptimisticThemeMode() {
   const themeFetcher = useFetcher({ key: THEME_FETCHER_KEY });
 
   if (themeFetcher.formData) {
-    const submission = parse(themeFetcher.formData, {
+    const submission = parseWithZod(themeFetcher.formData, {
       schema: ThemeFormSchema,
     });
     return submission.value?.theme;

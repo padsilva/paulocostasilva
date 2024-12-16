@@ -18,7 +18,7 @@ export function useOptimisticLang() {
   const langFetcher = useFetcher({ key: LANG_FETCHER_KEY });
 
   if (langFetcher.formData) {
-    const submission = parse(langFetcher.formData, {
+    const submission = parseWithZod(langFetcher.formData, {
       schema: LangFormSchema,
     });
     return submission.value?.lang;
