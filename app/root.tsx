@@ -1,22 +1,13 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import {
-  json,
   type LoaderFunctionArgs,
   type LinksFunction,
   type MetaFunction,
-} from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
-import { useChangeLanguage } from "remix-i18next";
+} from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { useChangeLanguage } from "remix-i18next/react";
 import { useTranslation } from "react-i18next";
 
-import stylesheet from "~/tailwind.css";
+import stylesheet from "~/tailwind.css?url";
 
 import { Footer } from "./components/footer";
 import { Navbar } from "./components/navbar";
@@ -30,7 +21,6 @@ import { useTheme } from "./utils/theme";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -43,7 +33,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     },
   };
 
-  return json(data);
+  return data;
 }
 
 export const handle = {
@@ -97,8 +87,8 @@ export default function App() {
           <ScrollTop />
 
           <ScrollRestoration />
+
           <Scripts />
-          <LiveReload />
         </SidebarProvider>
       </body>
     </html>

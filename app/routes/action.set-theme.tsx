@@ -1,5 +1,5 @@
 import { parseWithZod } from "@conform-to/zod";
-import { type ActionFunctionArgs, json } from "@remix-run/server-runtime";
+import { type ActionFunctionArgs, data } from "react-router";
 
 import { ThemeFormSchema } from "~/utils/theme";
 import { setTheme } from "~/utils/theme.server";
@@ -10,12 +10,12 @@ export async function action({ request }: ActionFunctionArgs) {
     schema: ThemeFormSchema,
   });
   if (submission.status !== "success") {
-    return json({ status: "error", submission } as const, { status: 400 });
+    return data({ status: "error", submission } as const, { status: 400 });
   }
   const { theme } = submission.value;
 
   const responseInit = {
     headers: { "set-cookie": setTheme(theme) },
   };
-  return json({ success: true, submission }, responseInit);
+  return data({ success: true, submission }, responseInit);
 }

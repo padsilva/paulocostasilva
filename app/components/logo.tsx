@@ -1,4 +1,4 @@
-import { Link, type LinkProps } from "@remix-run/react";
+import { Link, type LinkProps } from "react-router";
 
 import { CodeIcon } from "./icons";
 import { Typography } from "./typography";

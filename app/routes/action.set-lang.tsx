@@ -1,5 +1,5 @@
 import { parseWithZod } from "@conform-to/zod";
-import { type ActionFunctionArgs, json } from "@remix-run/server-runtime";
+import { type ActionFunctionArgs, data } from "react-router";
 
 import { LangFormSchema } from "~/utils/lang";
 import { setLang } from "~/utils/lang.server";
@@ -10,12 +10,12 @@ export async function action({ request }: ActionFunctionArgs) {
     schema: LangFormSchema,
   });
   if (submission.status !== "success") {
-    return json({ status: "error", submission } as const, { status: 400 });
+    return data({ status: "error", submission } as const, { status: 400 });
   }
   const { lang } = submission.value;
 
   const responseInit = {
     headers: { "set-cookie": setLang(lang) },
   };
-  return json({ success: true, submission }, responseInit);
+  return data({ success: true, submission }, responseInit);
 }

@@ -45,8 +45,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - `dev`: runs development server
 - `build`: creates production build
-- `build:remix`: builds the Remix application
-- `build:sitemap`: generates sitemap
 - `start`: starts production server
 - `typecheck`: runs TypeScript type checking
 
