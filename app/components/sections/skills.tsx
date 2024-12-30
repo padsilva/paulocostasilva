@@ -171,7 +171,7 @@ const CategoryFilter = ({
     <div className="flex flex-col items-stretch sm:flex-row sm:justify-center gap-4 mb-8">
       <button
         onClick={() => onSelect("all")}
-        className={`flex px-4 py-2 border-b-2 transition-colors duration-300 ${
+        className={`flex items-center px-4 py-2 border-b-2 transition-colors duration-300 ${
           activeCategory === "all" ? "border-blue-500" : "border-transparent"
         }`}
       >
