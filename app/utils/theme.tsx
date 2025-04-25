@@ -21,7 +21,9 @@ export function useOptimisticThemeMode() {
     const submission = parseWithZod(themeFetcher.formData, {
       schema: ThemeFormSchema,
     });
-    return submission.value?.theme;
+    return submission.status === "success"
+      ? submission.value?.theme
+      : undefined;
   }
 }
 

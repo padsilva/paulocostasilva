@@ -21,7 +21,7 @@ export function useOptimisticLang() {
     const submission = parseWithZod(langFetcher.formData, {
       schema: LangFormSchema,
     });
-    return submission.value?.lang;
+    return submission.status === "success" ? submission.value?.lang : undefined;
   }
 }
 
