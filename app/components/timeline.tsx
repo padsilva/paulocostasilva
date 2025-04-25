@@ -68,9 +68,9 @@ export const Timeline = ({ events, section }: TimelineProps) => {
                 ${
                   expandedTile === index
                     ? "shadow-xl"
-                    : "shadow hover:shadow-md"
+                    : "shadow-sm hover:shadow-md"
                 }
-                focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500
+                focus:outline-hidden focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500
               `}
                 aria-expanded={expandedTile === index}
                 aria-label={t(`${name}_title`)}

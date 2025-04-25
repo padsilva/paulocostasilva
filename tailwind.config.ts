@@ -7,11 +7,6 @@ const NAVBAR_PAD_VALUES = [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55];
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
-  safelist: [
-    ...BODY_PAD_VALUES,
-    ...NAVBAR_PAD_VALUES_MD,
-    ...NAVBAR_PAD_VALUES,
-  ].flatMap((i) => [`md:pr-[${i}px]`, `pr-[${i}px]`]),
   theme: {
     extend: {
       fontFamily: {
@@ -19,8 +14,8 @@ export default {
       },
       padding: Object.fromEntries(
         [...BODY_PAD_VALUES, ...NAVBAR_PAD_VALUES_MD, ...NAVBAR_PAD_VALUES].map(
-          (i) => [`[${i}px]`, `${i}px`]
-        )
+          (i) => [`[${i}px]`, `${i}px`],
+        ),
       ),
     },
   },

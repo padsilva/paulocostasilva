@@ -30,7 +30,7 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className={clsx(
-        "fixed w-full z-30 2xl:px-48 xl:px-36 py-4 flex justify-between items-center bg-slate-100/80 dark:bg-slate-900/80 border-b border-b-gray-200 dark:border-b-gray-800 backdrop-blur-sm",
+        "fixed w-full z-30 2xl:px-48 xl:px-36 py-4 flex justify-between items-center bg-slate-100/80 dark:bg-slate-900/80 border-b border-b-gray-200 dark:border-b-gray-800 backdrop-blur-xs",
         { "md:px-16 px-8": !isSidebarOpen || !width },
         { [styles]: isSidebarOpen && width },
       )}

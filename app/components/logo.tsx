@@ -12,11 +12,11 @@ export const Logo = ({ onClick }: Partial<LinkProps>) => (
       <div className="flex flex-col items-center select-none">
         <Typography size="h2">Paulo</Typography>
         <div className="flex items-center gap-0.5 self-stretch">
-          <hr className="flex-grow border-t-2 border-black dark:border-white" />
-          <Typography size="caption" className="flex-shrink">
+          <hr className="grow border-t-2 border-black dark:border-white" />
+          <Typography size="caption" className="shrink">
             Costa Silva
           </Typography>
-          <hr className="flex-grow border-t-2 border-black dark:border-white" />
+          <hr className="grow border-t-2 border-black dark:border-white" />
         </div>
       </div>
     </div>
