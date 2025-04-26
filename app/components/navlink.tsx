@@ -1,5 +1,5 @@
 import { Link, type LinkProps } from "react-router";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 export const NavLink = ({ children, className, onClick, to }: LinkProps) => (
   <Link

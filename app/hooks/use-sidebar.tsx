@@ -5,6 +5,7 @@ import {
   type ReactNode,
   type FC,
   useMemo,
+  useCallback,
 } from "react";
 
 interface SidebarContextProps {
@@ -19,9 +20,12 @@ const SidebarContext = createContext<SidebarContextProps | undefined>(
 export const SidebarProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = (isToClose?: boolean) => {
-    setIsSidebarOpen(isToClose ?? !isSidebarOpen);
-  };
+  const toggleSidebar = useCallback(
+    (isToClose?: boolean) => {
+      setIsSidebarOpen(isToClose ?? !isSidebarOpen);
+    },
+    [isSidebarOpen],
+  );
 
   const value = useMemo(
     () => ({ isSidebarOpen, toggleSidebar }),

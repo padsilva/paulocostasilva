@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { CloseIcon, DownloadIcon, GitHubIcon, MenuIcon } from "./icons";
 import { Button } from "./button";
@@ -99,6 +99,7 @@ export function Navbar() {
               title={t("github_link")}
               to="https://github.com/padsilva/paulocostasilva"
               target="_blank"
+              rel="noreferrer"
             >
               <div className="text-black dark:text-white active:text-slate-800 dark:active:text-slate-200 transform transition-all duration-300 group">
                 <GitHubIcon />

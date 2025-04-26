@@ -1,5 +1,5 @@
 import { useFetcher } from "react-router";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { useTranslation } from "react-i18next";
 
 import { useRequestInfo } from "~/utils/request-info";

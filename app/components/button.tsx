@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from "react";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { TitleProps, Typography } from "./typography";
 

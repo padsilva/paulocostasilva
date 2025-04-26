@@ -16,7 +16,7 @@ import { useTheme } from "~/utils/theme";
 type Skill = {
   name: string;
   category: string;
-  logo: any;
+  logo: string | React.ComponentType<{ size?: number }>;
 };
 
 const SKILL_CATEGORIES = [
@@ -134,19 +134,29 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
     >
       <div className="flex items-center gap-4">
         <div className="w-12 h-12 flex items-center justify-center rounded-lg p-2">
-          {isMethodologiesCompetencies ? (
-            <div className="text-black dark:text-white">
-              <Logo size={24} />
-            </div>
-          ) : (
-            <img
-              src={
-                isCypress ? Logo.replace("cypress", `cypress_${theme}`) : Logo
-              }
-              alt={`${skill.name} logo`}
-              className="w-full h-full object-contain"
-            />
-          )}
+          {(() => {
+            if (isMethodologiesCompetencies) {
+              return (
+                <div className="text-black dark:text-white">
+                  <Logo size={24} />
+                </div>
+              );
+            } else if (typeof Logo === "string") {
+              return (
+                <img
+                  src={
+                    isCypress
+                      ? Logo.replace("cypress", `cypress_${theme}`)
+                      : Logo
+                  }
+                  alt={`${skill.name} logo`}
+                  className="w-full h-full object-contain"
+                />
+              );
+            } else {
+              return Logo && <Logo size={24} />;
+            }
+          })()}
         </div>
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
           {isMethodologiesCompetencies ? t(skill.name) : skill.name}

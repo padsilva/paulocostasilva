@@ -138,6 +138,7 @@ export function Sidebar() {
                     title={t("github_link")}
                     to="https://github.com/padsilva/paulocostasilva"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <Button
                       isMobile
