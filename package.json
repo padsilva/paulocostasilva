@@ -11,7 +11,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@conform-to/react": "^1.2.2",
+    "@conform-to/react": "^1.4.0",
     "@conform-to/zod": "^1.2.2",
     "@react-router/node": "^7.5.2",
     "@react-router/serve": "^7.5.2",
