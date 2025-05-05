@@ -14,7 +14,7 @@
     "@conform-to/react": "^1.4.0",
     "@conform-to/zod": "^1.4.0",
     "@react-router/node": "^7.5.2",
-    "@react-router/serve": "^7.5.2",
+    "@react-router/serve": "^7.5.3",
     "@types/react-transition-group": "^4.4.12",
     "clsx": "^2.1.1",
     "cookie": "^1.0.2",
